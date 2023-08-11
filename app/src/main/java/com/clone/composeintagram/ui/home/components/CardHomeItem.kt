@@ -42,27 +42,39 @@ import com.clone.composeintagram.base.loveVector
 import com.clone.composeintagram.base.postCommentVector
 import com.clone.composeintagram.base.saveVector
 import com.clone.composeintagram.base.verifiedVector
+import com.clone.composeintagram.data.DataModel
 
 @Composable
 fun CardHomeItem(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    data: DataModel
 ) {
-    val context = LocalContext.current
     Column(
         modifier = modifier
             .padding(vertical = 16.dp)
             .fillMaxWidth()
     ) {
-        RowTopView(context = context)
-        CardImageView(context = context)
-        CommentSection()
+        RowTopView(
+            name = data.name,
+            peopleImage = data.peopleImage
+        )
+        CardImageView(postContent = listOf())
+        CommentSection(
+            likes = data.likes,
+            peopleImage = data.peopleImage,
+            name = data.name,
+            contentDesc = data.contentDescription,
+            timeMoments = data.moments
+        )
     }
 }
 
 @Composable
 private fun RowTopView(
     modifier: Modifier = Modifier,
-    context: Context
+    context: Context = LocalContext.current,
+    name: String,
+    peopleImage: String
 ) {
     val colorList = listOf(
         Color(0xFF962fbf),
@@ -102,8 +114,7 @@ private fun RowTopView(
                 ) {
                     AsyncImage(
                         model = ImageRequest.Builder(context)
-//                            .data("https://instagram.fcgk16-1.fna.fbcdn.net/v/t51.2885-19/353075677_1476803672724898_7186900499832148947_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fcgk16-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=p-9yR_3h16IAX9QA5gf&edm=AJ9x6zYBAAAA&ccb=7-5&oh=00_AfCyiHfAE_EWKEpz8c1CszD6BbEBYqH9IuT0poTkULq7zA&oe=64DA2591&_nc_sid=65462d")
-                            .data("https://scontent.cdninstagram.com/v/t51.2885-19/314827144_688732645901903_7513758145817461481_n.jpg?stp=dst-jpg_s150x150&_nc_ht=scontent.cdninstagram.com&_nc_cat=111&_nc_ohc=C5De3MJG0VsAX8RqXb9&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfASoNr5RxMTcQlBJ8OfOPDtWfEaYGakfdFFXHulNN4WOg&oe=64D66580&_nc_sid=10d13b")
+                            .data(peopleImage)
                             .crossfade(true)
                             .build(),
                         contentDescription = null,
@@ -114,7 +125,7 @@ private fun RowTopView(
                 }
             }
             Text(
-                text = "ahmadarwani",
+                text = name,
                 modifier = modifier.padding(horizontal = 8.dp),
                 fontSize = 14.sp,
                 letterSpacing = 0.sp,
@@ -124,7 +135,6 @@ private fun RowTopView(
         }
         Image(
             imageVector = Icons.Sharp.MoreVert,
-//            imageVector = moreVector(),
             contentDescription = "",
             modifier = modifier.width(20.dp),
             colorFilter = ColorFilter.tint(
@@ -137,7 +147,8 @@ private fun RowTopView(
 @Composable
 private fun CardImageView(
     modifier: Modifier = Modifier,
-    context: Context
+    context: Context = LocalContext.current,
+    postContent: List<String>
 ) {
     Column(
         modifier = modifier
@@ -180,12 +191,18 @@ private fun CardImageView(
 
 @Composable
 fun CommentSection(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    context: Context = LocalContext.current,
+    likes: String,
+    name: String,
+    contentDesc: String,
+    peopleImage: String,
+    timeMoments: String
 ) {
     Column(modifier = modifier.padding(horizontal = 16.dp)) {
         Text(
             text = buildAnnotatedString {
-                append("255,334 ")
+                append(likes)
                 append(" likes")
             },
             letterSpacing = 0.sp,
@@ -196,11 +213,11 @@ fun CommentSection(
             text = buildAnnotatedString {
                 append(
                     AnnotatedString(
-                        text = "ahmadarwani ",
+                        text = name,
                         spanStyle = SpanStyle(fontWeight = FontWeight.Bold)
                     )
                 )
-                append("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,")
+                append(contentDesc)
                 append("more")
             },
             fontSize = 14.sp,
@@ -208,6 +225,43 @@ fun CommentSection(
             lineHeight = 16.sp,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis
+        )
+        Text(
+            text = "more", fontSize = 14.sp,
+            letterSpacing = 0.sp,
+            lineHeight = 16.sp, color = MaterialTheme.colorScheme.secondary
+        )
+        Row(
+            modifier = modifier,
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Box(
+                modifier = modifier
+                    .clip(CircleShape)
+                    .size(20.dp)
+            ) {
+                AsyncImage(
+                    model = ImageRequest.Builder(context)
+                        .data(peopleImage)
+                        .crossfade(true)
+                        .build(),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = modifier.fillMaxWidth()
+                )
+            }
+            Text(
+                text = "Add a comment...", fontSize = 14.sp,
+                letterSpacing = 0.sp,
+                lineHeight = 12.sp, color = MaterialTheme.colorScheme.secondary,
+                modifier = modifier.padding(horizontal = 8.dp, vertical = 6.dp)
+            )
+        }
+        Text(
+            text = timeMoments, fontSize = 12.sp,
+            letterSpacing = 0.sp,
+            lineHeight = 10.sp, color = MaterialTheme.colorScheme.secondary,
         )
     }
 }

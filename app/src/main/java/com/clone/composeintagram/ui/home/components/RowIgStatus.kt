@@ -1,5 +1,6 @@
 package com.clone.composeintagram.ui.home.components
 
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -40,9 +41,9 @@ import java.util.Locale
 fun RowIgStatus(
     modifier: Modifier = Modifier,
     igStatus: List<DataModel>,
-    statusIgBorder: List<Color>
+    statusIgBorder: List<Color>,
+    context: Context = LocalContext.current
 ) {
-    val context = LocalContext.current
     LazyRow(
         contentPadding = PaddingValues(horizontal = 12.dp),
         modifier = modifier.fillMaxWidth(),
@@ -96,7 +97,7 @@ fun RowIgStatus(
                 )
             }
         }
-        items(igStatus, key = { it.image }) {
+        items(igStatus, key = { it.statusImage }) {
             Column(
                 modifier = modifier,
                 verticalArrangement = Arrangement.Center,
@@ -124,7 +125,7 @@ fun RowIgStatus(
                     ) {
                         AsyncImage(
                             model = ImageRequest.Builder(context)
-                                .data(it.image)
+                                .data(it.statusImage)
                                 .crossfade(true)
                                 .build(),
                             contentDescription = null,

@@ -21,9 +21,13 @@ class HomeViewModel @Inject constructor(
     private val _statusIgBorder = MutableStateFlow<List<Color>>(emptyList())
     val statusIgBorder: StateFlow<List<Color>> = _statusIgBorder.asStateFlow()
 
+    private val _dataItems = MutableStateFlow<List<DataModel>>(emptyList())
+    val dataItems: StateFlow<List<DataModel>> = _dataItems.asStateFlow()
+
     init {
         _statusIg.value = igHomeRepository.igStatus
         _statusIgBorder.value = igHomeRepository.igStatusBorder
+        _dataItems.value = igHomeRepository.homeItems
     }
 
 }
