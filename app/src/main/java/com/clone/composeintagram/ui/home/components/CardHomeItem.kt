@@ -1,15 +1,18 @@
 package com.clone.composeintagram.ui.home.components
 
 import android.content.Context
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -19,7 +22,13 @@ import androidx.compose.material.icons.sharp.MoreVert
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -43,28 +52,31 @@ import com.clone.composeintagram.base.postCommentVector
 import com.clone.composeintagram.base.saveVector
 import com.clone.composeintagram.base.verifiedVector
 import com.clone.composeintagram.data.DataModel
+import com.clone.composeintagram.ui.theme.red500
 
 @Composable
 fun CardHomeItem(
     modifier: Modifier = Modifier,
-    data: DataModel
+    data: DataModel,
+    addComment: (Boolean) -> Unit
 ) {
     Column(
         modifier = modifier
-            .padding(vertical = 16.dp)
+            .padding(vertical = 10.dp)
             .fillMaxWidth()
     ) {
         RowTopView(
             name = data.name,
             peopleImage = data.peopleImage
         )
-        CardImageView(postContent = listOf())
+        CardImageView(imgPostUrl = data.postImage, addComment = addComment)
         CommentSection(
             likes = data.likes,
             peopleImage = data.peopleImage,
             name = data.name,
             contentDesc = data.contentDescription,
-            timeMoments = data.moments
+            timeMoments = data.moments,
+            addComment = addComment
         )
     }
 }
@@ -103,7 +115,7 @@ private fun RowTopView(
             ) {
                 Box(
                     modifier = modifier
-                        .padding(1.5.dp)
+                        .padding(1.dp)
                         .size(30.dp)
                         .clip(CircleShape)
                         .border(
@@ -148,8 +160,15 @@ private fun RowTopView(
 private fun CardImageView(
     modifier: Modifier = Modifier,
     context: Context = LocalContext.current,
-    postContent: List<String>
+    imgPostUrl: String,
+    addComment: (Boolean) -> Unit
 ) {
+    var contentSave by rememberSaveable {
+        mutableStateOf(false)
+    }
+    var contentFavorite by rememberSaveable {
+        mutableStateOf(false)
+    }
     Column(
         modifier = modifier
             .padding(top = 8.dp)
@@ -157,12 +176,14 @@ private fun CardImageView(
     ) {
         AsyncImage(
             model = ImageRequest.Builder(context)
-                .data("https://scontent-sin6-2.cdninstagram.com/v/t39.30808-6/366551708_849021513254470_6821465593141777921_n.jpg?stp=dst-jpg_e15&_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=1&_nc_ohc=sQ0mRO-2zA4AX_zUBB6&edm=AJ9x6zYAAAAA&ccb=7-5&ig_cache_key=MzE2NTUxNDkwMzYyMjcyNjg0NQ%3D%3D.2-ccb7-5&oh=00_AfDDARTQq4glksqbOoM-fL8hjQORlCWisQb7kHA-HnFc6A&oe=64DA598F&_nc_sid=65462d")
+                .data(data = imgPostUrl)
                 .crossfade(true)
                 .build(),
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = modifier.fillMaxWidth()
+            modifier = modifier
+                .fillMaxWidth()
+                .height(500.dp)
         )
         Row(
             modifier = modifier
@@ -176,29 +197,43 @@ private fun CardImageView(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {
-                Icon(imageVector = loveVector(), contentDescription = "")
+                Icon(
+                    imageVector = loveVector(contentFavorite = contentFavorite),
+                    contentDescription = "",
+                    modifier = modifier.clickable { contentFavorite = !contentFavorite },
+                    tint = if (contentFavorite) red500 else MaterialTheme.colorScheme.onBackground
+                )
                 Icon(
                     imageVector = commentVector(),
                     contentDescription = "",
-                    modifier = modifier.padding(horizontal = 20.dp)
+                    modifier = modifier
+                        .padding(horizontal = 20.dp)
+                        .clickable { addComment(true) }
                 )
                 Icon(imageVector = postCommentVector(), contentDescription = "")
             }
-            Icon(imageVector = saveVector(), contentDescription = "")
+            Icon(
+                imageVector = saveVector(contentSave),
+                contentDescription = "",
+                modifier = modifier.clickable { contentSave = !contentSave })
         }
     }
 }
 
 @Composable
-fun CommentSection(
+private fun CommentSection(
     modifier: Modifier = Modifier,
     context: Context = LocalContext.current,
     likes: String,
     name: String,
     contentDesc: String,
     peopleImage: String,
-    timeMoments: String
+    timeMoments: String,
+    addComment: (Boolean) -> Unit
 ) {
+    var fullTitlePost by rememberSaveable {
+        mutableStateOf(false)
+    }
     Column(modifier = modifier.padding(horizontal = 16.dp)) {
         Text(
             text = buildAnnotatedString {
@@ -217,19 +252,19 @@ fun CommentSection(
                         spanStyle = SpanStyle(fontWeight = FontWeight.Bold)
                     )
                 )
-                append(contentDesc)
-                append("more")
+                append("  $contentDesc")
             },
             fontSize = 14.sp,
             letterSpacing = 0.sp,
             lineHeight = 16.sp,
-            maxLines = 1,
+            maxLines = if (fullTitlePost) Int.MAX_VALUE else 1,
             overflow = TextOverflow.Ellipsis
         )
         Text(
-            text = "more", fontSize = 14.sp,
+            text = if (fullTitlePost) "" else "more", fontSize = 14.sp,
             letterSpacing = 0.sp,
-            lineHeight = 16.sp, color = MaterialTheme.colorScheme.secondary
+            lineHeight = 16.sp, color = MaterialTheme.colorScheme.secondary,
+            modifier = modifier.clickable { fullTitlePost = true }
         )
         Row(
             modifier = modifier,
@@ -255,7 +290,9 @@ fun CommentSection(
                 text = "Add a comment...", fontSize = 14.sp,
                 letterSpacing = 0.sp,
                 lineHeight = 12.sp, color = MaterialTheme.colorScheme.secondary,
-                modifier = modifier.padding(horizontal = 8.dp, vertical = 6.dp)
+                modifier = modifier
+                    .padding(horizontal = 8.dp, vertical = 6.dp)
+                    .clickable { addComment(true) }
             )
         }
         Text(

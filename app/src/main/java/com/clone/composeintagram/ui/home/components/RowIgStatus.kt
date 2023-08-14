@@ -18,6 +18,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Divider
+import androidx.compose.material3.DividerDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -44,106 +46,109 @@ fun RowIgStatus(
     statusIgBorder: List<Color>,
     context: Context = LocalContext.current
 ) {
-    LazyRow(
-        contentPadding = PaddingValues(horizontal = 12.dp),
-        modifier = modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(10.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        item {
-            Column(
-                modifier = modifier,
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Box(modifier = modifier, contentAlignment = Alignment.BottomEnd) {
-                    Box(
-                        modifier = modifier
-                            .padding(2.dp)
-                            .clip(CircleShape)
-                            .size(80.dp),
-                    ) {
-                        AsyncImage(
-                            model = ImageRequest.Builder(context)
-                                .data("https://scontent.cdninstagram.com/v/t51.2885-19/314827144_688732645901903_7513758145817461481_n.jpg?stp=dst-jpg_s150x150&_nc_ht=scontent.cdninstagram.com&_nc_cat=111&_nc_ohc=C5De3MJG0VsAX8RqXb9&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfASoNr5RxMTcQlBJ8OfOPDtWfEaYGakfdFFXHulNN4WOg&oe=64D66580&_nc_sid=10d13b")
-                                .crossfade(true)
-                                .build(),
-                            contentDescription = null,
-                            contentScale = ContentScale.FillBounds,
-                            modifier = modifier.fillMaxSize()
-                        )
-                    }
-                    Box(
-                        modifier
-                            .clip(CircleShape)
-                            .size(25.dp)
-                            .background(MaterialTheme.colorScheme.onPrimary)
-                    ) {
-                        Image(
-                            imageVector = addRoundedVector(),
-                            contentDescription = "icon",
+    Column {
+        LazyRow(
+            contentPadding = PaddingValues(start = 12.dp, end = 12.dp, bottom = 12.dp),
+            modifier = modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            item {
+                Column(
+                    modifier = modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Box(modifier = modifier, contentAlignment = Alignment.BottomEnd) {
+                        Box(
                             modifier = modifier
-                                .padding(1.5.dp)
-                                .fillMaxSize()
-                        )
+                                .padding(2.dp)
+                                .clip(CircleShape)
+                                .size(80.dp),
+                        ) {
+                            AsyncImage(
+                                model = ImageRequest.Builder(context)
+                                    .data("https://i.postimg.cc/kX8xCR06/351251814-178642991799472-3134276109914643848-n.jpg")
+                                    .crossfade(true)
+                                    .build(),
+                                contentDescription = null,
+                                contentScale = ContentScale.FillBounds,
+                                modifier = modifier.fillMaxSize()
+                            )
+                        }
+                        Box(
+                            modifier
+                                .clip(CircleShape)
+                                .size(25.dp)
+                                .background(MaterialTheme.colorScheme.onPrimary)
+                        ) {
+                            Image(
+                                imageVector = addRoundedVector(),
+                                contentDescription = "icon",
+                                modifier = modifier
+                                    .padding(1.5.dp)
+                                    .fillMaxSize()
+                            )
+                        }
                     }
+                    Spacer(modifier = modifier.height(8.dp))
+                    Text(
+                        text = "Your Story",
+                        fontSize = 12.sp,
+                        maxLines = 1,
+                        letterSpacing = 0.sp,
+                    )
                 }
-                Spacer(modifier = modifier.height(8.dp))
-                Text(
-                    text = "Your Story",
-                    fontSize = 12.sp,
-                    maxLines = 1,
-                    letterSpacing = 0.sp,
-                )
             }
-        }
-        items(igStatus, key = { it.statusImage }) {
-            Column(
-                modifier = modifier,
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Box(
-                    modifier = modifier
-                        .clip(CircleShape)
-                        .background(
-                            brush = Brush.linearGradient(statusIgBorder),
-                        ),
-                    contentAlignment = Alignment.Center
+            items(igStatus, key = { it.statusImage }) {
+                Column(
+                    modifier = modifier,
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Box(
                         modifier = modifier
-                            .padding(2.dp)
-                            .border(
-                                width = 2.dp,
-                                color = MaterialTheme.colorScheme.onPrimary,
-                                shape = CircleShape
-                            )
-                            .size(80.dp)
-                            .clip(CircleShape),
+                            .clip(CircleShape)
+                            .background(
+                                brush = Brush.linearGradient(statusIgBorder),
+                            ),
                         contentAlignment = Alignment.Center
                     ) {
-                        AsyncImage(
-                            model = ImageRequest.Builder(context)
-                                .data(it.statusImage)
-                                .crossfade(true)
-                                .build(),
-                            contentDescription = null,
-                            contentScale = ContentScale.FillBounds,
-                            modifier = modifier.fillMaxSize()
-                        )
+                        Box(
+                            modifier = modifier
+                                .padding(2.dp)
+                                .border(
+                                    width = 2.dp,
+                                    color = MaterialTheme.colorScheme.onPrimary,
+                                    shape = CircleShape
+                                )
+                                .size(80.dp)
+                                .clip(CircleShape),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            AsyncImage(
+                                model = ImageRequest.Builder(context)
+                                    .data(it.statusImage)
+                                    .crossfade(true)
+                                    .build(),
+                                contentDescription = null,
+                                contentScale = ContentScale.FillBounds,
+                                modifier = modifier.fillMaxSize()
+                            )
+                        }
                     }
+                    Spacer(modifier = modifier.height(8.dp))
+                    Text(
+                        text = it.name.lowercase(Locale.ENGLISH),
+                        fontSize = 12.sp,
+                        maxLines = 1,
+                        modifier = modifier.width(60.dp),
+                        letterSpacing = 0.sp,
+                        overflow = TextOverflow.Ellipsis
+                    )
                 }
-                Spacer(modifier = modifier.height(8.dp))
-                Text(
-                    text = it.name.lowercase(Locale.ENGLISH),
-                    fontSize = 12.sp,
-                    maxLines = 1,
-                    modifier = modifier.width(60.dp),
-                    letterSpacing = 0.sp,
-                    overflow = TextOverflow.Ellipsis
-                )
             }
         }
+        Divider(thickness = 0.3.dp)
     }
 }

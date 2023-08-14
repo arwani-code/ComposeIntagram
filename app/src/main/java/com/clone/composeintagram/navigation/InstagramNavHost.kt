@@ -1,9 +1,5 @@
 package com.clone.composeintagram.navigation
 
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
-import androidx.compose.animation.rememberSplineBasedDecay
-import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -14,8 +10,6 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -33,13 +27,9 @@ fun InstagramNavHost(
         state = rememberTopAppBarState()
     )
 ) {
-
-
     Scaffold(
-        topBar = {
-            TopInstagramBar(scrollBehavior = scrollBehavior)
-        },
-        modifier = modifier
+        topBar = { TopInstagramBar(scrollBehavior = scrollBehavior) },
+        bottomBar = {}
     ) { innerPadding ->
         NavHost(
             navController = navController,
@@ -49,9 +39,10 @@ fun InstagramNavHost(
             composable("Home") {
                 HomeScreen(
                     lazyListState = lazyListState,
-                    nestedScrollConnection = scrollBehavior.nestedScrollConnection
+                    nestedScrollConnection = scrollBehavior.nestedScrollConnection,
                 )
             }
         }
     }
 }
+

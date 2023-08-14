@@ -549,136 +549,172 @@ fun addPostVector(): ImageVector {
 }
 
 @Composable
-fun loveVector(): ImageVector {
-    return remember {
-        ImageVector.Builder(
-            name = "vector",
-            defaultWidth = 24.dp,
-            defaultHeight = 24.dp,
-            viewportWidth = 24f,
-            viewportHeight = 24f
-        ).apply {
-            path(
-                fill = SolidColor(Color(0xFFF5F5F5)),
-                fillAlpha = 1.0f,
-                stroke = null,
-                strokeAlpha = 1.0f,
-                strokeLineWidth = 1.0f,
-                strokeLineCap = StrokeCap.Butt,
-                strokeLineJoin = StrokeJoin.Miter,
-                strokeLineMiter = 1.0f,
-                pathFillType = PathFillType.NonZero
-            ) {
-                moveTo(16.792f, 3.904f)
-                arcTo(
-                    4.989f,
-                    4.989f,
-                    0f,
-                    isMoreThanHalf = false,
-                    isPositiveArc = true,
-                    21.5f,
-                    9.122f
-                )
-                curveToRelative(0f, 3.072f, -2.652f, 4.959f, -5.197f, 7.222f)
-                curveToRelative(-2.512f, 2.243f, -3.865f, 3.469f, -4.303f, 3.752f)
-                curveToRelative(-0.477f, -0.309f, -2.143f, -1.823f, -4.303f, -3.752f)
-                curveTo(5.141f, 14.072f, 2.5f, 12.167f, 2.5f, 9.122f)
-                arcToRelative(
-                    4.989f,
-                    4.989f,
-                    0f,
-                    isMoreThanHalf = false,
-                    isPositiveArc = true,
-                    4.708f,
-                    -5.218f
-                )
-                arcToRelative(
-                    4.21f,
-                    4.21f,
-                    0f,
-                    isMoreThanHalf = false,
-                    isPositiveArc = true,
-                    3.675f,
-                    1.941f
-                )
-                curveToRelative(0.84f, 1.175f, 0.98f, 1.763f, 1.12f, 1.763f)
-                reflectiveCurveToRelative(0.278f, -0.588f, 1.11f, -1.766f)
-                arcToRelative(
-                    4.17f,
-                    4.17f,
-                    0f,
-                    isMoreThanHalf = false,
-                    isPositiveArc = true,
-                    3.679f,
-                    -1.938f
-                )
-                moveToRelative(0f, -2f)
-                arcToRelative(
-                    6.04f,
-                    6.04f,
-                    0f,
-                    isMoreThanHalf = false,
-                    isPositiveArc = false,
-                    -4.797f,
-                    2.127f
-                )
-                arcToRelative(
-                    6.052f,
-                    6.052f,
-                    0f,
-                    isMoreThanHalf = false,
-                    isPositiveArc = false,
-                    -4.787f,
-                    -2.127f
-                )
-                arcTo(
-                    6.985f,
-                    6.985f,
-                    0f,
-                    isMoreThanHalf = false,
-                    isPositiveArc = false,
-                    0.5f,
-                    9.122f
-                )
-                curveToRelative(0f, 3.61f, 2.55f, 5.827f, 5.015f, 7.97f)
-                curveToRelative(0.283f, 0.246f, 0.569f, 0.494f, 0.853f, 0.747f)
-                lineToRelative(1.027f, 0.918f)
-                arcToRelative(
-                    44.998f,
-                    44.998f,
-                    0f,
-                    isMoreThanHalf = false,
-                    isPositiveArc = false,
-                    3.518f,
-                    3.018f
-                )
-                arcToRelative(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = false, 2.174f, 0f)
-                arcToRelative(
-                    45.263f,
-                    45.263f,
-                    0f,
-                    isMoreThanHalf = false,
-                    isPositiveArc = false,
-                    3.626f,
-                    -3.115f
-                )
-                lineToRelative(0.922f, -0.824f)
-                curveToRelative(0.293f, -0.26f, 0.59f, -0.519f, 0.885f, -0.774f)
-                curveToRelative(2.334f, -2.025f, 4.98f, -4.32f, 4.98f, -7.94f)
-                arcToRelative(
-                    6.985f,
-                    6.985f,
-                    0f,
-                    isMoreThanHalf = false,
-                    isPositiveArc = false,
-                    -6.708f,
-                    -7.218f
-                )
-                close()
-            }
-        }.build()
-    }
+fun loveVector(contentFavorite: Boolean = false): ImageVector = if (contentFavorite) remember {
+    ImageVector.Builder(
+        name = "vector",
+        defaultWidth = 24.dp,
+        defaultHeight = 24.dp,
+        viewportWidth = 48f,
+        viewportHeight = 48f,
+    ).apply {
+        path(
+            fill = SolidColor(Color(0xFFFF3040)),
+            fillAlpha = 1.0f,
+            stroke = null,
+            strokeAlpha = 1.0f,
+            strokeLineWidth = 1.0f,
+            strokeLineCap = StrokeCap.Butt,
+            strokeLineJoin = StrokeJoin.Miter,
+            strokeLineMiter = 1.0f,
+            pathFillType = PathFillType.NonZero
+        ) {
+            moveTo(34.6f, 3.1f)
+            curveToRelative(-4.5f, 0f, -7.9f, 1.8f, -10.6f, 5.6f)
+            curveToRelative(-2.7f, -3.7f, -6.1f, -5.5f, -10.6f, -5.5f)
+            curveTo(6f, 3.1f, 0f, 9.6f, 0f, 17.6f)
+            curveToRelative(0f, 7.3f, 5.4f, 12f, 10.6f, 16.5f)
+            curveToRelative(0.6f, 0.5f, 1.3f, 1.1f, 1.9f, 1.7f)
+            lineToRelative(2.3f, 2f)
+            curveToRelative(4.4f, 3.9f, 6.6f, 5.9f, 7.6f, 6.5f)
+            curveToRelative(0.5f, 0.3f, 1.1f, 0.5f, 1.6f, 0.5f)
+            reflectiveCurveToRelative(1.1f, -0.2f, 1.6f, -0.5f)
+            curveToRelative(1f, -0.6f, 2.8f, -2.2f, 7.8f, -6.8f)
+            lineToRelative(2f, -1.8f)
+            curveToRelative(0.7f, -0.6f, 1.3f, -1.2f, 2f, -1.7f)
+            curveTo(42.7f, 29.6f, 48f, 25f, 48f, 17.6f)
+            curveToRelative(0f, -8f, -6f, -14.5f, -13.4f, -14.5f)
+            close()
+        }
+    }.build()
+} else remember {
+    ImageVector.Builder(
+        name = "vector",
+        defaultWidth = 24.dp,
+        defaultHeight = 24.dp,
+        viewportWidth = 24f,
+        viewportHeight = 24f
+    ).apply {
+        path(
+            fill = SolidColor(Color(0xFFF5F5F5)),
+            fillAlpha = 1.0f,
+            stroke = null,
+            strokeAlpha = 1.0f,
+            strokeLineWidth = 1.0f,
+            strokeLineCap = StrokeCap.Butt,
+            strokeLineJoin = StrokeJoin.Miter,
+            strokeLineMiter = 1.0f,
+            pathFillType = PathFillType.NonZero
+        ) {
+            moveTo(16.792f, 3.904f)
+            arcTo(
+                4.989f,
+                4.989f,
+                0f,
+                isMoreThanHalf = false,
+                isPositiveArc = true,
+                21.5f,
+                9.122f
+            )
+            curveToRelative(0f, 3.072f, -2.652f, 4.959f, -5.197f, 7.222f)
+            curveToRelative(-2.512f, 2.243f, -3.865f, 3.469f, -4.303f, 3.752f)
+            curveToRelative(-0.477f, -0.309f, -2.143f, -1.823f, -4.303f, -3.752f)
+            curveTo(5.141f, 14.072f, 2.5f, 12.167f, 2.5f, 9.122f)
+            arcToRelative(
+                4.989f,
+                4.989f,
+                0f,
+                isMoreThanHalf = false,
+                isPositiveArc = true,
+                4.708f,
+                -5.218f
+            )
+            arcToRelative(
+                4.21f,
+                4.21f,
+                0f,
+                isMoreThanHalf = false,
+                isPositiveArc = true,
+                3.675f,
+                1.941f
+            )
+            curveToRelative(0.84f, 1.175f, 0.98f, 1.763f, 1.12f, 1.763f)
+            reflectiveCurveToRelative(0.278f, -0.588f, 1.11f, -1.766f)
+            arcToRelative(
+                4.17f,
+                4.17f,
+                0f,
+                isMoreThanHalf = false,
+                isPositiveArc = true,
+                3.679f,
+                -1.938f
+            )
+            moveToRelative(0f, -2f)
+            arcToRelative(
+                6.04f,
+                6.04f,
+                0f,
+                isMoreThanHalf = false,
+                isPositiveArc = false,
+                -4.797f,
+                2.127f
+            )
+            arcToRelative(
+                6.052f,
+                6.052f,
+                0f,
+                isMoreThanHalf = false,
+                isPositiveArc = false,
+                -4.787f,
+                -2.127f
+            )
+            arcTo(
+                6.985f,
+                6.985f,
+                0f,
+                isMoreThanHalf = false,
+                isPositiveArc = false,
+                0.5f,
+                9.122f
+            )
+            curveToRelative(0f, 3.61f, 2.55f, 5.827f, 5.015f, 7.97f)
+            curveToRelative(0.283f, 0.246f, 0.569f, 0.494f, 0.853f, 0.747f)
+            lineToRelative(1.027f, 0.918f)
+            arcToRelative(
+                44.998f,
+                44.998f,
+                0f,
+                isMoreThanHalf = false,
+                isPositiveArc = false,
+                3.518f,
+                3.018f
+            )
+            arcToRelative(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = false, 2.174f, 0f)
+            arcToRelative(
+                45.263f,
+                45.263f,
+                0f,
+                isMoreThanHalf = false,
+                isPositiveArc = false,
+                3.626f,
+                -3.115f
+            )
+            lineToRelative(0.922f, -0.824f)
+            curveToRelative(0.293f, -0.26f, 0.59f, -0.519f, 0.885f, -0.774f)
+            curveToRelative(2.334f, -2.025f, 4.98f, -4.32f, 4.98f, -7.94f)
+            arcToRelative(
+                6.985f,
+                6.985f,
+                0f,
+                isMoreThanHalf = false,
+                isPositiveArc = false,
+                -6.708f,
+                -7.218f
+            )
+            close()
+        }
+    }.build()
 }
+
 
 @Composable
 fun messengerVector(): ImageVector {
@@ -1109,7 +1145,15 @@ fun commentVector(): ImageVector {
                 pathFillType = PathFillType.NonZero
             ) {
                 moveTo(20.656f, 17.008f)
-                arcToRelative(9.993f, 9.993f, 0f, isMoreThanHalf = true, isPositiveArc = false, -3.59f, 3.615f)
+                arcToRelative(
+                    9.993f,
+                    9.993f,
+                    0f,
+                    isMoreThanHalf = true,
+                    isPositiveArc = false,
+                    -3.59f,
+                    3.615f
+                )
                 lineTo(22f, 22f)
                 close()
             }
@@ -1164,34 +1208,73 @@ fun postCommentVector(): ImageVector {
 }
 
 @Composable
-fun saveVector(): ImageVector {
-    return remember {
-        ImageVector.Builder(
-            name = "vector",
-            defaultWidth = 24.dp,
-            defaultHeight = 24.dp,
-            viewportWidth = 24f,
-            viewportHeight = 24f
-        ).apply {
-            path(
-                fill = null,
-                fillAlpha = 1.0f,
-                stroke = SolidColor(Color(0xFF000000)),
-                strokeAlpha = 1.0f,
-                strokeLineWidth = 2f,
-                strokeLineCap = StrokeCap.Round,
-                strokeLineJoin = StrokeJoin.Round,
-                strokeLineMiter = 1.0f,
-                pathFillType = PathFillType.NonZero
-            ) {
-                moveTo(20f, 21f)
-                lineTo(12f, 13.44f)
-                lineTo(4f, 21f)
-                lineTo(4f, 3f)
-                lineTo(20f, 3f)
-                lineTo(20f, 21f)
-                close()
-            }
-        }.build()
-    }
+fun saveVector(saveContent: Boolean): ImageVector = if (saveContent) remember {
+    ImageVector.Builder(
+        name = "vector",
+        defaultWidth = 24.dp,
+        defaultHeight = 24.dp,
+        viewportWidth = 24f,
+        viewportHeight = 24f
+    ).apply {
+        path(
+            fill = SolidColor(Color(0xFFF5F5F5)),
+            fillAlpha = 1.0f,
+            stroke = null,
+            strokeAlpha = 1.0f,
+            strokeLineWidth = 1.0f,
+            strokeLineCap = StrokeCap.Butt,
+            strokeLineJoin = StrokeJoin.Miter,
+            strokeLineMiter = 1.0f,
+            pathFillType = PathFillType.NonZero
+        ) {
+            moveTo(20f, 22f)
+            arcToRelative(
+                0.999f,
+                0.999f,
+                0f,
+                isMoreThanHalf = false,
+                isPositiveArc = true,
+                -0.687f,
+                -0.273f
+            )
+            lineTo(12f, 14.815f)
+            lineToRelative(-7.313f, 6.912f)
+            arcTo(1f, 1f, 0f, isMoreThanHalf = false, isPositiveArc = true, 3f, 21f)
+            verticalLineTo(3f)
+            arcToRelative(1f, 1f, 0f, isMoreThanHalf = false, isPositiveArc = true, 1f, -1f)
+            horizontalLineToRelative(16f)
+            arcToRelative(1f, 1f, 0f, isMoreThanHalf = false, isPositiveArc = true, 1f, 1f)
+            verticalLineToRelative(18f)
+            arcToRelative(1f, 1f, 0f, isMoreThanHalf = false, isPositiveArc = true, -1f, 1f)
+            close()
+        }
+    }.build()
+} else remember {
+    ImageVector.Builder(
+        name = "vector",
+        defaultWidth = 24.dp,
+        defaultHeight = 24.dp,
+        viewportWidth = 24f,
+        viewportHeight = 24f
+    ).apply {
+        path(
+            fill = null,
+            fillAlpha = 1.0f,
+            stroke = SolidColor(Color(0xFF000000)),
+            strokeAlpha = 1.0f,
+            strokeLineWidth = 2f,
+            strokeLineCap = StrokeCap.Round,
+            strokeLineJoin = StrokeJoin.Round,
+            strokeLineMiter = 1.0f,
+            pathFillType = PathFillType.NonZero
+        ) {
+            moveTo(20f, 21f)
+            lineTo(12f, 13.44f)
+            lineTo(4f, 21f)
+            lineTo(4f, 3f)
+            lineTo(20f, 3f)
+            lineTo(20f, 21f)
+            close()
+        }
+    }.build()
 }
