@@ -27,7 +27,6 @@ import com.clone.composeintagram.ui.home.components.RowIgStatus
 fun HomeScreen(
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
-    lazyListState: LazyListState,
     nestedScrollConnection: NestedScrollConnection,
     sheetState: SheetState = rememberModalBottomSheetState(
         skipPartiallyExpanded = true,
@@ -46,7 +45,6 @@ fun HomeScreen(
             openComment = openComment,
             onDismiss = { openComment = false })
         LazyColumn(
-            state = lazyListState,
             modifier = modifier
                 .fillMaxSize()
                 .nestedScroll(nestedScrollConnection)

@@ -33,18 +33,15 @@ fun ModalBottomSheetComments(
     modifier: Modifier = Modifier,
     state: SheetState,
     openComment: Boolean,
-    onDismiss: () -> Unit
+    onDismiss: () -> Unit,
+    openSheetReport: Boolean = false
 ) {
     val scope = rememberCoroutineScope()
     LaunchedEffect(key1 = openComment, block = {
         if (openComment) state.show()
     })
 
-    LaunchedEffect(key1 = state.isVisible, block = {
-        Log.i("SKMDKFMN", "ModalBottomSheetComments: ${state.isVisible}")
-    })
-
-    if (state.isVisible) {
+    if (state.isVisible && !openSheetReport) {
         Box(
             modifier = modifier
                 .fillMaxSize()
@@ -59,7 +56,7 @@ fun ModalBottomSheetComments(
                 },
                 modifier = modifier
                     .padding(top = 16.dp),
-                ) {
+            ) {
                 Column(
                     modifier = modifier
                         .fillMaxSize()
@@ -93,4 +90,5 @@ fun ModalBottomSheetComments(
             }
         }
     }
+    
 }

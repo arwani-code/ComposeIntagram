@@ -9,4 +9,5 @@ class IgHomeRepository @Inject constructor(
     val igStatus: List<DataModel> = igLocalDataSource.statusIg
     val igStatusBorder: List<Color> = igLocalDataSource.colorList
     val homeItems: List<DataModel> = igLocalDataSource.dataItems
+    val dataSearchItems: List<DataModel> = igLocalDataSource.dataSearchItem
 }

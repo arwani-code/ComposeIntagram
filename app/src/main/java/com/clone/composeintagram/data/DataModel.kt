@@ -7,5 +7,6 @@ data class DataModel(
     val postImage: String = "",
     val likes: String = "",
     val contentDescription: String = "",
-    val moments: String = ""
+    val moments: String = "",
+    val canLargeImage: Boolean = false
 )

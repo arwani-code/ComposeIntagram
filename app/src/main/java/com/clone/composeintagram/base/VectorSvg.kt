@@ -549,6 +549,43 @@ fun addPostVector(): ImageVector {
 }
 
 @Composable
+fun rememberVectorSearch(): ImageVector {
+    return remember {
+        ImageVector.Builder(
+            name = "vector",
+            defaultWidth = 16.dp,
+            defaultHeight = 16.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {path(
+            fill = SolidColor(Color.Black),
+            fillAlpha = 1.0f,
+            stroke = null,
+            strokeAlpha = 1.0f,
+            strokeLineWidth = 1.0f,
+            strokeLineCap = StrokeCap.Butt,
+            strokeLineJoin = StrokeJoin.Miter,
+            strokeLineMiter = 1.0f,
+            pathFillType = PathFillType.NonZero
+        ) {
+            moveTo(20.53f, 19.46f)
+            lineToRelative(-4.4f, -4.4f)
+            arcToRelative(7.33f, 7.33f, 0f, isMoreThanHalf = true, isPositiveArc = false, -1.07f, 1.06f)
+            lineToRelative(4.41f, 4.41f)
+            arcToRelative(0.77f, 0.77f, 0f, isMoreThanHalf = false, isPositiveArc = false, 1.06f, 0f)
+            arcToRelative(0.77f, 0.77f, 0f, isMoreThanHalf = false, isPositiveArc = false, 0f, -1.07f)
+            close()
+            moveToRelative(-15.78f, -9f)
+            arcToRelative(5.75f, 5.75f, 0f, isMoreThanHalf = true, isPositiveArc = true, 5.75f, 5.75f)
+            arcToRelative(5.76f, 5.76f, 0f, isMoreThanHalf = false, isPositiveArc = true, -5.75f, -5.72f)
+            verticalLineToRelative(-0.03f)
+            close()
+        }
+        }.build()
+    }
+}
+
+@Composable
 fun loveVector(contentFavorite: Boolean = false): ImageVector = if (contentFavorite) remember {
     ImageVector.Builder(
         name = "vector",

@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val igHomeRepository: IgHomeRepository
+    igHomeRepository: IgHomeRepository
 ) : ViewModel() {
 
     private val _statusIg = MutableStateFlow<List<DataModel>>(emptyList())
