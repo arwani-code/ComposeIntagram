@@ -3,7 +3,7 @@ package com.clone.composeintagram.ui.home
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import com.clone.composeintagram.data.DataModel
-import com.clone.composeintagram.data.IgHomeRepository
+import com.clone.composeintagram.data.IgRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    igHomeRepository: IgHomeRepository
+    igHomeRepository: IgRepository
 ) : ViewModel() {
 
     private val _statusIg = MutableStateFlow<List<DataModel>>(emptyList())

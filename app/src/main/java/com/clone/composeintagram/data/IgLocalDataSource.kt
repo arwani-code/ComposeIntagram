@@ -3,9 +3,11 @@ package com.clone.composeintagram.data
 import androidx.compose.ui.graphics.Color
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.random.Random
 
 @Singleton
 class IgLocalDataSource @Inject constructor() {
+    private val nameRegex = Regex("([A-Z])\\w+")
     val colorList = listOf(
         Color(0xFF962fbf),
         Color(0xFFd62976),
@@ -189,4 +191,13 @@ class IgLocalDataSource @Inject constructor() {
         )
     )
 
+    val sampleVideos = listOf(
+        "https://dms-exp2.licdn.com/playlist/vid/D4D05AQHcHkwu71P9WA/mp4-720p-30fp-crf28/0/1692956951174?e=1693998000&v=beta&t=Bdw7P3rqvp7yJ7TT6HMv_Yt9dBm8TGNFmENUVi2as70",
+        "https://dms-exp2.licdn.com/playlist/vid/D5610AQGrNRa64UJrIA/mp4-720p-30fp-crf28/0/1688128248955?e=1693998000&v=beta&t=BsNvVTIfdzO9eEQLmm-O_kRd1cqsByOQza4EdVdLcX4"
+    ).map {
+        val name = nameRegex.find(it)?.groups?.firstOrNull()?.value
+        val thumb =
+            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/$name.jpg"
+        Video(url = it, isFavorite = Random.nextBoolean(), thumbnail = thumb)
+    }
 }

@@ -56,18 +56,20 @@ fun TopInstagramBar(
     currentRoute: String?,
     size: SizeScreen = SizeScreen()
 ) {
-    TopAppBar(
-        title = {
-            when (currentRoute) {
-                "Home" -> HomeTopAppBar(modifier = modifier)
-                "Search" -> SearchTopAppBar(modifier = modifier, size = (size.width() / 20).dp)
-            }
-        },
-        scrollBehavior = scrollBehavior,
-        colors = TopAppBarDefaults.mediumTopAppBarColors(
-            scrolledContainerColor = MaterialTheme.colorScheme.background,
-        ),
-    )
+    if (currentRoute != "Reels") {
+        TopAppBar(
+            title = {
+                when (currentRoute) {
+                    "Home" -> HomeTopAppBar(modifier = modifier)
+                    "Search" -> SearchTopAppBar(modifier = modifier, size = (size.width() / 20).dp)
+                }
+            },
+            scrollBehavior = scrollBehavior,
+            colors = TopAppBarDefaults.mediumTopAppBarColors(
+                scrolledContainerColor = MaterialTheme.colorScheme.background,
+            ),
+        )
+    }
 }
 
 @Composable
@@ -146,7 +148,11 @@ fun SearchTopAppBar(modifier: Modifier, size: Dp) {
                             .padding(horizontal = 12.dp)
                             .size(20.dp)
                     )
-                    Text(text = "Search", fontSize = 16.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(
+                        text = "Search",
+                        fontSize = 16.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
                     innerTextField()
                 }
             },

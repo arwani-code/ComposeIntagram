@@ -79,4 +79,9 @@ dependencies {
     implementation("androidx.compose.ui:ui-util")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.1")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.30.1")
+
+    implementation("com.google.android.exoplayer:exoplayer-core:2.18.1")
+    implementation("com.google.android.exoplayer:exoplayer-ui:2.18.1")
+    implementation("com.airbnb.android:lottie-compose:5.2.0")
+    implementation("dev.chrisbanes.snapper:snapper:0.3.0")
 }

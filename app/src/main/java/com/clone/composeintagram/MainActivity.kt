@@ -14,13 +14,29 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.clone.composeintagram.navigation.InstagramNavHost
 import com.clone.composeintagram.ui.theme.ComposeIntagramTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.google.android.exoplayer2.database.DatabaseProvider
+import com.google.android.exoplayer2.database.StandaloneDatabaseProvider
+import com.google.android.exoplayer2.upstream.cache.Cache
+import com.google.android.exoplayer2.upstream.cache.CacheEvictor
+import com.google.android.exoplayer2.upstream.cache.LeastRecentlyUsedCacheEvictor
+import com.google.android.exoplayer2.upstream.cache.SimpleCache
 import dagger.hilt.android.AndroidEntryPoint
 
+
+@OptIn(ExperimentalMaterial3Api::class)
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    @OptIn(ExperimentalMaterial3Api::class)
+
+    private lateinit var cache: Cache
+    private lateinit var cacheEvictor: CacheEvictor
+    private lateinit var databaseProvider: DatabaseProvider
+    private val cacheSize: Long = 100 * 1024 * 1024
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        cacheEvictor = LeastRecentlyUsedCacheEvictor(cacheSize)
+        databaseProvider = StandaloneDatabaseProvider(this)
+        cache = SimpleCache(cacheDir, cacheEvictor, databaseProvider)
         setContent {
             ComposeIntagramTheme {
                 val uiSystemController = rememberSystemUiController()
@@ -29,7 +45,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    InstagramNavHost()
+                    InstagramNavHost(cache = cache)
                 }
             }
         }
