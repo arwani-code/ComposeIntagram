@@ -40,6 +40,10 @@ fun Video(
     }
 
     DisposableEffect(state) {
+        if (state.isReady && playerView.player != player && player.currentMediaItemIndex == index) {
+            playerView.player = player
+            Log.v("PlayerView", "$index: Attach Player To Player View")
+        }
         onDispose {
             if (state.currentMediaItem != MediaItem.EMPTY && state.currentMediaItem != player.getMediaItemAt(
                     index
@@ -50,13 +54,13 @@ fun Video(
             }
         }
     }
-
-    LaunchedEffect(state) {
-        if (state.isReady && playerView.player != player && player.currentMediaItemIndex == index) {
-            playerView.player = player
-            Log.v("PlayerView", "$index: Attach Player To Player View")
-        }
-    }
+//
+//    LaunchedEffect(state) {
+//        if (state.isReady && playerView.player != player && player.currentMediaItemIndex == index) {
+//            playerView.player = player
+//            Log.v("PlayerView", "$index: Attach Player To Player View")
+//        }
+//    }
 
     Surface(
         modifier = modifier,
@@ -72,7 +76,6 @@ fun Video(
                     }
                 },
             )
-
             if (!state.firstFrameRendered) {
                 Thumbnail(
                     modifier = Modifier
@@ -82,7 +85,6 @@ fun Video(
                     url = video.thumbnail,
                 )
             }
-
             if (!state.isReady) {
                 LoadingIndicator(
                     modifier = Modifier.align(Alignment.Center)
@@ -94,6 +96,11 @@ fun Video(
                     .align(Alignment.BottomEnd)
                     .padding(8.dp),
                 isFavorite = video.isFavorite,
+            )
+
+            VideoDescription(
+                modifier = Modifier
+                    .align(Alignment.BottomStart),
             )
         }
     }

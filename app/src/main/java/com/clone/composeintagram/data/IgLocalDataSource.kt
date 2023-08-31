@@ -192,8 +192,10 @@ class IgLocalDataSource @Inject constructor() {
     )
 
     val sampleVideos = listOf(
-        "https://dms-exp2.licdn.com/playlist/vid/D4D05AQHcHkwu71P9WA/mp4-720p-30fp-crf28/0/1692956951174?e=1693998000&v=beta&t=Bdw7P3rqvp7yJ7TT6HMv_Yt9dBm8TGNFmENUVi2as70",
-        "https://dms-exp2.licdn.com/playlist/vid/D5610AQGrNRa64UJrIA/mp4-720p-30fp-crf28/0/1688128248955?e=1693998000&v=beta&t=BsNvVTIfdzO9eEQLmm-O_kRd1cqsByOQza4EdVdLcX4"
+        "https://dms-exp2.licdn.com/playlist/vid/D4D05AQHk3m5ZbShWBg/feedshare-ambry-analyzed_servable_progressive_video/0/1693382416327?e=1694052000&v=beta&t=ZB1zfA8R11xsCPf2bL_zi79Fhn8UE6HX-TMuJ3homX0",
+        "https://dms-exp2.licdn.com/playlist/vid/D5610AQGrNRa64UJrIA/mp4-720p-30fp-crf28/0/1688128248955?e=1693998000&v=beta&t=BsNvVTIfdzO9eEQLmm-O_kRd1cqsByOQza4EdVdLcX4",
+        "https://dms-exp2.licdn.com/playlist/vid/D4E10AQG0XvddsFze-w/mp4-720p-30fp-crf28/0/1693386485919/0-_islamic_finance_2023720pmp4?e=1694062800&v=beta&t=JaPLxt5JXHQcK1pNIlcBg9GrRo03zDYewfBfIjQUglY",
+        "https://dms-exp2.licdn.com/playlist/vid/D5605AQGSHFLQs718bw/mp4-720p-30fp-crf28/0/1692948614540?e=1694062800&v=beta&t=rHpQa-o8FbQy4n1V1GD2PG2nveqq9oO3W329SSIzGks"
     ).map {
         val name = nameRegex.find(it)?.groups?.firstOrNull()?.value
         val thumb =

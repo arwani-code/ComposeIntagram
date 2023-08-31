@@ -22,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.text.font.FontFamily
@@ -156,7 +157,7 @@ fun ReelsScreen(
             Text(
                 text = "Reels",
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onBackground,
+                color = Color.White,
                 fontSize = 22.sp,
                 fontFamily = FontFamily.SansSerif
             )
@@ -166,6 +167,7 @@ fun ReelsScreen(
                 modifier = Modifier
                     .padding(8.dp)
                     .size(25.dp),
+                tint = Color.White
             )
         }
     }
