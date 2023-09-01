@@ -11,4 +11,5 @@ class IgRepository @Inject constructor(
     val homeItems: List<DataModel> = igLocalDataSource.dataItems
     val dataSearchItems: List<DataModel> = igLocalDataSource.dataSearchItem
     val sampleVideos: List<Video> = igLocalDataSource.sampleVideos
+    val followedProfile: List<DataModel> = igLocalDataSource.followedProfile
 }

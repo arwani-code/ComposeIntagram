@@ -1509,3 +1509,240 @@ fun vectorLocation(): ImageVector {
         }.build()
     }
 }
+
+@Composable
+fun rememberVectorMenu(): ImageVector {
+    return remember {
+        ImageVector.Builder(
+            name = "vector",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {
+            path(
+                fill = SolidColor(Color.Black),
+                fillAlpha = 1.0f,
+                stroke = null,
+                strokeAlpha = 1.0f,
+                strokeLineWidth = 1.0f,
+                strokeLineCap = StrokeCap.Butt,
+                strokeLineJoin = StrokeJoin.Miter,
+                strokeLineMiter = 1.0f,
+                pathFillType = PathFillType.EvenOdd
+            ) {
+                moveTo(5f, 6.75f)
+                horizontalLineToRelative(14f)
+                arcToRelative(
+                    0.75f,
+                    0.75f,
+                    0f,
+                    isMoreThanHalf = true,
+                    isPositiveArc = false,
+                    0f,
+                    -1.5f
+                )
+                horizontalLineTo(5f)
+                arcToRelative(
+                    0.75f,
+                    0.75f,
+                    0f,
+                    isMoreThanHalf = false,
+                    isPositiveArc = false,
+                    0f,
+                    1.5f
+                )
+                close()
+                moveToRelative(14f, 4.5f)
+                horizontalLineTo(5f)
+                arcToRelative(
+                    0.75f,
+                    0.75f,
+                    0f,
+                    isMoreThanHalf = true,
+                    isPositiveArc = false,
+                    0f,
+                    1.5f
+                )
+                horizontalLineToRelative(14f)
+                arcToRelative(
+                    0.75f,
+                    0.75f,
+                    0f,
+                    isMoreThanHalf = true,
+                    isPositiveArc = false,
+                    0f,
+                    -1.5f
+                )
+                close()
+                moveToRelative(-14f, 6f)
+                horizontalLineToRelative(14f)
+                arcToRelative(
+                    0.75f,
+                    0.75f,
+                    0f,
+                    isMoreThanHalf = true,
+                    isPositiveArc = true,
+                    0f,
+                    1.5f
+                )
+                horizontalLineTo(5f)
+                arcToRelative(
+                    0.75f,
+                    0.75f,
+                    0f,
+                    isMoreThanHalf = true,
+                    isPositiveArc = true,
+                    0f,
+                    -1.5f
+                )
+                close()
+            }
+        }.build()
+    }
+}
+
+@Composable
+fun threadsLogo(): ImageVector {
+    return remember {
+        ImageVector.Builder(
+            name = "vector",
+            defaultWidth = 15.dp,
+            defaultHeight = 15.dp,
+            viewportWidth = 192f,
+            viewportHeight = 192f
+        ).apply {
+            path(
+                fill = SolidColor(Color.Black),
+                fillAlpha = 1.0f,
+                stroke = null,
+                strokeAlpha = 1.0f,
+                strokeLineWidth = 1.0f,
+                strokeLineCap = StrokeCap.Butt,
+                strokeLineJoin = StrokeJoin.Miter,
+                strokeLineMiter = 1.0f,
+                pathFillType = PathFillType.NonZero
+            ) {
+                moveTo(141.537f, 88.9883f)
+                curveTo(140.71f, 88.5919f, 139.87f, 88.2104f, 139.019f, 87.8451f)
+                curveTo(137.537f, 60.5382f, 122.616f, 44.905f, 97.5619f, 44.745f)
+                curveTo(97.4484f, 44.7443f, 97.3355f, 44.7443f, 97.222f, 44.7443f)
+                curveTo(82.2364f, 44.7443f, 69.7731f, 51.1409f, 62.102f, 62.7807f)
+                lineTo(75.881f, 72.2328f)
+                curveTo(81.6116f, 63.5383f, 90.6052f, 61.6848f, 97.2286f, 61.6848f)
+                curveTo(97.3051f, 61.6848f, 97.3819f, 61.6848f, 97.4576f, 61.6855f)
+                curveTo(105.707f, 61.7381f, 111.932f, 64.1366f, 115.961f, 68.814f)
+                curveTo(118.893f, 72.2193f, 120.854f, 76.925f, 121.825f, 82.8638f)
+                curveTo(114.511f, 81.6207f, 106.601f, 81.2385f, 98.145f, 81.7233f)
+                curveTo(74.3247f, 83.0954f, 59.0111f, 96.9879f, 60.0396f, 116.292f)
+                curveTo(60.5615f, 126.084f, 65.4397f, 134.508f, 73.775f, 140.011f)
+                curveTo(80.8224f, 144.663f, 89.899f, 146.938f, 99.3323f, 146.423f)
+                curveTo(111.79f, 145.74f, 121.563f, 140.987f, 128.381f, 132.296f)
+                curveTo(133.559f, 125.696f, 136.834f, 117.143f, 138.28f, 106.366f)
+                curveTo(144.217f, 109.949f, 148.617f, 114.664f, 151.047f, 120.332f)
+                curveTo(155.179f, 129.967f, 155.42f, 145.8f, 142.501f, 158.708f)
+                curveTo(131.182f, 170.016f, 117.576f, 174.908f, 97.0135f, 175.059f)
+                curveTo(74.2042f, 174.89f, 56.9538f, 167.575f, 45.7381f, 153.317f)
+                curveTo(35.2355f, 139.966f, 29.8077f, 120.682f, 29.6052f, 96f)
+                curveTo(29.8077f, 71.3178f, 35.2355f, 52.0336f, 45.7381f, 38.6827f)
+                curveTo(56.9538f, 24.4249f, 74.2039f, 17.11f, 97.0132f, 16.9405f)
+                curveTo(119.988f, 17.1113f, 137.539f, 24.4614f, 149.184f, 38.788f)
+                curveTo(154.894f, 45.8136f, 159.199f, 54.6488f, 162.037f, 64.9503f)
+                lineTo(178.184f, 60.6422f)
+                curveTo(174.744f, 47.9622f, 169.331f, 37.0357f, 161.965f, 27.974f)
+                curveTo(147.036f, 9.6067f, 125.202f, 0.1951f, 97.0695f, 0f)
+                horizontalLineTo(96.9569f)
+                curveTo(68.8816f, 0.1945f, 47.2921f, 9.6418f, 32.7883f, 28.0793f)
+                curveTo(19.8819f, 44.4864f, 13.2244f, 67.3157f, 13.0007f, 95.9325f)
+                lineTo(13f, 96f)
+                lineTo(13.0007f, 96.0675f)
+                curveTo(13.2244f, 124.684f, 19.8819f, 147.514f, 32.7883f, 163.921f)
+                curveTo(47.2921f, 182.358f, 68.8816f, 191.806f, 96.9569f, 192f)
+                horizontalLineTo(97.0695f)
+                curveTo(122.03f, 191.827f, 139.624f, 185.292f, 154.118f, 170.811f)
+                curveTo(173.081f, 151.866f, 172.51f, 128.119f, 166.26f, 113.541f)
+                curveTo(161.776f, 103.087f, 153.227f, 94.5962f, 141.537f, 88.9883f)
+                close()
+                moveTo(98.4405f, 129.507f)
+                curveTo(88.0005f, 130.095f, 77.1544f, 125.409f, 76.6196f, 115.372f)
+                curveTo(76.2232f, 107.93f, 81.9158f, 99.626f, 99.0812f, 98.6368f)
+                curveTo(101.047f, 98.5234f, 102.976f, 98.468f, 104.871f, 98.468f)
+                curveTo(111.106f, 98.468f, 116.939f, 99.0737f, 122.242f, 100.233f)
+                curveTo(120.264f, 124.935f, 108.662f, 128.946f, 98.4405f, 129.507f)
+                close()
+            }
+        }.build()
+    }
+}
+
+@Composable
+fun addPeople(): ImageVector {
+    return remember {
+        ImageVector.Builder(
+            name = "vector",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 48f,
+            viewportHeight = 48f
+        ).apply {
+            path(
+                fill = SolidColor(Color(0xFFF5F5F5)),
+                fillAlpha = 1.0f,
+                stroke = null,
+                strokeAlpha = 1.0f,
+                strokeLineWidth = 1.0f,
+                strokeLineCap = StrokeCap.Butt,
+                strokeLineJoin = StrokeJoin.Miter,
+                strokeLineMiter = 1.0f,
+                pathFillType = PathFillType.NonZero
+            ) {
+                moveTo(32f, 25.5f)
+                curveToRelative(5.2f, 0f, 9.5f, -4.3f, 9.5f, -9.5f)
+                reflectiveCurveTo(37.2f, 6.5f, 32f, 6.5f)
+                reflectiveCurveToRelative(-9.5f, 4.3f, -9.5f, 9.5f)
+                reflectiveCurveToRelative(4.3f, 9.5f, 9.5f, 9.5f)
+                close()
+                moveToRelative(0f, -16f)
+                curveToRelative(3.6f, 0f, 6.5f, 2.9f, 6.5f, 6.5f)
+                reflectiveCurveToRelative(-2.9f, 6.5f, -6.5f, 6.5f)
+                reflectiveCurveToRelative(-6.5f, -2.9f, -6.5f, -6.5f)
+                reflectiveCurveToRelative(2.9f, -6.5f, 6.5f, -6.5f)
+                close()
+                moveToRelative(5.5f, 19f)
+                horizontalLineToRelative(-11f)
+                curveToRelative(-5.5f, 0f, -10f, 4.5f, -10f, 10f)
+                verticalLineTo(40f)
+                curveToRelative(0f, 0.8f, 0.7f, 1.5f, 1.5f, 1.5f)
+                reflectiveCurveToRelative(1.5f, -0.7f, 1.5f, -1.5f)
+                verticalLineToRelative(-1.5f)
+                curveToRelative(0f, -3.9f, 3.1f, -7f, 7f, -7f)
+                horizontalLineToRelative(11f)
+                curveToRelative(3.9f, 0f, 7f, 3.1f, 7f, 7f)
+                verticalLineTo(40f)
+                curveToRelative(0f, 0.8f, 0.7f, 1.5f, 1.5f, 1.5f)
+                reflectiveCurveToRelative(1.5f, -0.7f, 1.5f, -1.5f)
+                verticalLineToRelative(-1.5f)
+                curveToRelative(0f, -5.5f, -4.5f, -10f, -10f, -10f)
+                close()
+                moveToRelative(-20f, -4.5f)
+                curveToRelative(0f, -0.8f, -0.7f, -1.5f, -1.5f, -1.5f)
+                horizontalLineToRelative(-5.5f)
+                verticalLineTo(17f)
+                curveToRelative(0f, -0.8f, -0.7f, -1.5f, -1.5f, -1.5f)
+                reflectiveCurveToRelative(-1.5f, 0.7f, -1.5f, 1.5f)
+                verticalLineToRelative(5.5f)
+                horizontalLineTo(2f)
+                curveToRelative(-0.8f, 0f, -1.5f, 0.7f, -1.5f, 1.5f)
+                reflectiveCurveToRelative(0.7f, 1.5f, 1.5f, 1.5f)
+                horizontalLineToRelative(5.5f)
+                verticalLineTo(31f)
+                curveToRelative(0f, 0.8f, 0.7f, 1.5f, 1.5f, 1.5f)
+                reflectiveCurveToRelative(1.5f, -0.7f, 1.5f, -1.5f)
+                verticalLineToRelative(-5.5f)
+                horizontalLineTo(16f)
+                curveToRelative(0.8f, 0f, 1.5f, -0.7f, 1.5f, -1.5f)
+                close()
+            }
+        }.build()
+    }
+}

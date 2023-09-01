@@ -34,6 +34,9 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -51,6 +54,9 @@ import com.clone.composeintagram.base.vectorLocation
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun VideoDescription(modifier: Modifier = Modifier) {
+    var following by remember {
+        mutableStateOf(false)
+    }
     Column(
         modifier = modifier
             .padding(start = 8.dp)
@@ -78,7 +84,7 @@ fun VideoDescription(modifier: Modifier = Modifier) {
                 modifier = modifier.padding(horizontal = 8.dp)
             )
             OutlinedButton(
-                onClick = { /*TODO*/ },
+                onClick = { following = !following },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent
                 ),
@@ -90,7 +96,7 @@ fun VideoDescription(modifier: Modifier = Modifier) {
                     .width(75.dp)
             ) {
                 Text(
-                    text = "Follow",
+                    text = if (following) "Following" else "Follow",
                     fontWeight = FontWeight.Bold,
                     color = Color.White,
                     fontSize = 14.sp

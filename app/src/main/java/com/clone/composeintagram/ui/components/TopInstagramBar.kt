@@ -1,5 +1,6 @@
 package com.clone.composeintagram.ui.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -35,17 +36,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.clone.composeintagram.base.addPostVector
 import com.clone.composeintagram.base.arrowDown
 import com.clone.composeintagram.base.instagramVector
 import com.clone.composeintagram.base.loveVector
 import com.clone.composeintagram.base.messengerVector
+import com.clone.composeintagram.base.rememberVectorMenu
 import com.clone.composeintagram.base.rememberVectorSearch
+import com.clone.composeintagram.base.verifiedVector
 import com.clone.composeintagram.ui.utils.SizeScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -62,6 +69,7 @@ fun TopInstagramBar(
                 when (currentRoute) {
                     "Home" -> HomeTopAppBar(modifier = modifier)
                     "Search" -> SearchTopAppBar(modifier = modifier, size = (size.width() / 20).dp)
+                    "Profile" -> ProfileTopAppBar(modifier = modifier)
                 }
             },
             scrollBehavior = scrollBehavior,
@@ -118,7 +126,7 @@ private fun HomeTopAppBar(modifier: Modifier) {
 }
 
 @Composable
-fun SearchTopAppBar(modifier: Modifier, size: Dp) {
+private fun SearchTopAppBar(modifier: Modifier, size: Dp) {
     Box(
         modifier = modifier
             .padding(end = size)
@@ -157,5 +165,46 @@ fun SearchTopAppBar(modifier: Modifier, size: Dp) {
                 }
             },
         )
+    }
+}
+
+@Composable
+private fun ProfileTopAppBar(modifier: Modifier) {
+    Box(modifier = modifier) {
+        Row(
+            modifier = modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Row(
+                modifier = modifier,
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = "Ahmad",
+                    fontFamily = FontFamily.SansSerif,
+                    fontWeight = FontWeight.SemiBold
+                )
+                Spacer(modifier = modifier.width(8.dp))
+                Image(imageVector = verifiedVector(), contentDescription = "")
+            }
+            Row(
+                modifier = modifier.padding(horizontal = 12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    imageVector = addPostVector(),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onBackground)
+                )
+                Spacer(modifier = modifier.width(12.dp))
+                Image(
+                    imageVector = rememberVectorMenu(),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onBackground)
+                )
+            }
+        }
     }
 }

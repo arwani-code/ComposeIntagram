@@ -24,6 +24,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.clone.composeintagram.ui.components.TopInstagramBar
 import com.clone.composeintagram.ui.home.HomeScreen
+import com.clone.composeintagram.ui.profile.ProfileScreen
 import com.clone.composeintagram.ui.reels.ReelsScreen
 import com.clone.composeintagram.ui.search.SearchScreen
 import com.google.android.exoplayer2.upstream.cache.Cache
@@ -50,7 +51,7 @@ fun InstagramNavHost(
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = "Reels",
+            startDestination = "Profile",
             modifier = modifier.padding(innerPadding)
         ) {
             composable("Home") {
@@ -65,6 +66,9 @@ fun InstagramNavHost(
             }
             composable("Reels"){
                 ReelsScreen(cache = cache)
+            }
+            composable("Profile"){
+                ProfileScreen()
             }
         }
     }

@@ -202,4 +202,42 @@ class IgLocalDataSource @Inject constructor() {
             "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/$name.jpg"
         Video(url = it, isFavorite = Random.nextBoolean(), thumbnail = thumb)
     }
+
+    val followedProfile = listOf(
+        DataModel(
+            peopleImage = "https://picsum.photos/200",
+            name = "Jhon Doe",
+            followed = "Aku sayang dan cinta dia selalu"
+        ),
+        DataModel(
+            peopleImage = "https://picsum.photos/200",
+            name = "Jhon Doe",
+            followed = "Aku sayang dan cinta dia selalu"
+        ),
+        DataModel(
+            peopleImage = "https://picsum.photos/200",
+            name = "Jhon Doe",
+            followed = "Aku sayang dan cinta dia selalu"
+        ),
+        DataModel(
+            peopleImage = "https://picsum.photos/200",
+            name = "Jhon Doe",
+            followed = "Aku sayang dan cinta dia selalu"
+        ),
+        DataModel(
+            peopleImage = "https://picsum.photos/200",
+            name = "Jhon Doe",
+            followed = "Aku sayang dan cinta dia selalu"
+        ),
+        DataModel(
+            peopleImage = "https://picsum.photos/200",
+            name = "Jhon Doe",
+            followed = "Aku sayang dan cinta dia selalu"
+        ),
+        DataModel(
+            peopleImage = "https://picsum.photos/200",
+            name = "Jhon Doe",
+            followed = "Aku sayang dan cinta dia selalu"
+        )
+    )
 }

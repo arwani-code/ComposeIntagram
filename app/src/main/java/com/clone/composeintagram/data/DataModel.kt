@@ -4,6 +4,7 @@ data class DataModel(
     val statusImage: String = "",
     val name: String = "",
     val peopleImage: String = "",
+    val followed: String = "",
     val postImage: String = "",
     val likes: String = "",
     val contentDescription: String = "",

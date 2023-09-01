@@ -4,6 +4,7 @@ import android.icu.text.CaseMap.Title
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,6 +24,10 @@ import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -49,12 +54,20 @@ fun VideoActions(
     modifier: Modifier = Modifier,
     isFavorite: Boolean
 ) {
+    var favorite by remember {
+        mutableStateOf(isFavorite)
+    }
     Column(
         modifier = modifier.padding(end = 5.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        ItemAction(title = "250k", image = loveVector())
+        ItemAction(
+            title = "250k",
+            image = loveVector(favorite),
+            onClick = { favorite = !favorite },
+            favorite = favorite
+        )
         ItemAction(title = "234k", image = commentVector())
         ItemAction(title = "344k", image = rememberShareVector())
         Image(
@@ -81,7 +94,9 @@ fun VideoActions(
 private fun ItemAction(
     modifier: Modifier = Modifier,
     title: String,
-    image: ImageVector
+    image: ImageVector,
+    onClick: () -> Unit = {},
+    favorite: Boolean = false
 ) {
     Column(
         modifier = modifier
@@ -93,7 +108,8 @@ private fun ItemAction(
         Image(
             imageVector = image,
             contentDescription = "",
-            colorFilter = ColorFilter.tint(color = Color.White)
+            modifier = modifier.clickable { onClick() },
+            colorFilter = ColorFilter.tint(color = if (favorite) Color.Red else MaterialTheme.colorScheme.onBackground)
         )
         Text(text = title, color = Color.White, fontSize = 12.sp)
     }
