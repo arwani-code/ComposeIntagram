@@ -73,18 +73,21 @@ fun InstagramContent(
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
-    uiSystemController.apply {
-        when (currentRoute) {
-            "Reels" -> {
-                setStatusBarColor(Color.Black)
-                setSystemBarsColor(Color.Black)
-            }
-
-            else -> {
-                setStatusBarColor(MaterialTheme.colorScheme.background)
-                setSystemBarsColor(MaterialTheme.colorScheme.background)
+    val colorBackground = MaterialTheme.colorScheme.background
+    DisposableEffect(key1 = currentRoute, effect = {
+        uiSystemController.apply {
+            when (currentRoute) {
+                "Reels" -> {
+                    setStatusBarColor(Color.Black)
+                    setSystemBarsColor(Color.Black)
+                }
+                else -> {
+                    setStatusBarColor(colorBackground)
+                    setSystemBarsColor(colorBackground)
+                }
             }
         }
-    }
+        onDispose {  }
+    })
     InstagramNavHost(cache = cache, navController = navController, currentRoute = currentRoute)
 }

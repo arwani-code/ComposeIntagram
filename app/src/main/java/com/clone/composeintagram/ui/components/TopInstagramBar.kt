@@ -59,24 +59,40 @@ import com.clone.composeintagram.ui.utils.SizeScreen
 @Composable
 fun TopInstagramBar(
     modifier: Modifier = Modifier,
-    scrollBehavior: TopAppBarScrollBehavior,
     currentRoute: String?,
-    size: SizeScreen = SizeScreen()
+    size: SizeScreen = SizeScreen(),
+    homeScrollBehavior: TopAppBarScrollBehavior,
+    searchScrollBehavior: TopAppBarScrollBehavior
 ) {
-    if (currentRoute != "Reels") {
-        TopAppBar(
-            title = {
-                when (currentRoute) {
-                    "Home" -> HomeTopAppBar(modifier = modifier)
-                    "Search" -> SearchTopAppBar(modifier = modifier, size = (size.width() / 20).dp)
-                    "Profile" -> ProfileTopAppBar(modifier = modifier)
-                }
-            },
-            scrollBehavior = scrollBehavior,
-            colors = TopAppBarDefaults.mediumTopAppBarColors(
-                scrolledContainerColor = MaterialTheme.colorScheme.background,
-            ),
-        )
+    when (currentRoute) {
+        "Home" -> {
+            TopAppBar(
+                title = { HomeTopAppBar(modifier = modifier) },
+                scrollBehavior = homeScrollBehavior,
+                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                    scrolledContainerColor = MaterialTheme.colorScheme.background,
+                ),
+            )
+        }
+
+        "Search" -> {
+            TopAppBar(
+                title = { SearchTopAppBar(modifier = modifier, size = (size.width() / 20).dp) },
+                scrollBehavior = searchScrollBehavior,
+                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                    scrolledContainerColor = MaterialTheme.colorScheme.background,
+                ),
+            )
+        }
+
+        "Profile" -> {
+            TopAppBar(
+                title = { ProfileTopAppBar(modifier = modifier) },
+                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                    scrolledContainerColor = MaterialTheme.colorScheme.background,
+                ),
+            )
+        }
     }
 }
 

@@ -41,15 +41,18 @@ import kotlinx.coroutines.delay
 fun InstagramNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    scrollBehavior: TopAppBarScrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(
-        state = rememberTopAppBarState()
-    ),
     cache: Cache,
     currentRoute: String?,
+    homeScrollBehavior: TopAppBarScrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(),
+    searchScrollBehavior: TopAppBarScrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 ) {
     Scaffold(
         topBar = {
-            TopInstagramBar(scrollBehavior = scrollBehavior, currentRoute = currentRoute)
+            TopInstagramBar(
+                searchScrollBehavior = searchScrollBehavior,
+                homeScrollBehavior = homeScrollBehavior,
+                currentRoute = currentRoute
+            )
         },
         bottomBar = {
             BottomBar(navController = navController, currentScreen = currentRoute)
@@ -62,12 +65,12 @@ fun InstagramNavHost(
         ) {
             composable("Home") {
                 HomeScreen(
-                    nestedScrollConnection = scrollBehavior.nestedScrollConnection,
+                    nestedScrollConnection = homeScrollBehavior.nestedScrollConnection,
                 )
             }
             composable("Search") {
                 SearchScreen(
-                    nestedScrollConnection = scrollBehavior.nestedScrollConnection,
+                    nestedScrollConnection = searchScrollBehavior.nestedScrollConnection,
                 )
             }
             composable("Reels") {
