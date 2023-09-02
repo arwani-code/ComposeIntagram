@@ -44,7 +44,6 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.clone.composeintagram.base.commentVector
 import com.clone.composeintagram.base.loveVector
-import com.clone.composeintagram.base.moreOptionVector
 import com.clone.composeintagram.base.moreVector
 import com.clone.composeintagram.base.rememberShareVector
 
@@ -109,7 +108,7 @@ private fun ItemAction(
             imageVector = image,
             contentDescription = "",
             modifier = modifier.clickable { onClick() },
-            colorFilter = ColorFilter.tint(color = if (favorite) Color.Red else MaterialTheme.colorScheme.onBackground)
+            colorFilter = ColorFilter.tint(color = if (favorite) Color.Red else Color.White)
         )
         Text(text = title, color = Color.White, fontSize = 12.sp)
     }

@@ -205,39 +205,54 @@ class IgLocalDataSource @Inject constructor() {
 
     val followedProfile = listOf(
         DataModel(
-            peopleImage = "https://picsum.photos/200",
-            name = "Jhon Doe",
-            followed = "Aku sayang dan cinta dia selalu"
+            peopleImage = "https://images.unsplash.com/photo-1682686578601-e7851641d52c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzODc1Mjd8MXwxfGFsbHwxfHx8fHx8Mnx8MTY5MzYyNzk0Nnw&ixlib=rb-4.0.3&q=80&w=400",
+            name = "Michael Johnson",
+            followed = "William Taylor and 20 more"
         ),
         DataModel(
-            peopleImage = "https://picsum.photos/200",
-            name = "Jhon Doe",
-            followed = "Aku sayang dan cinta dia selalu"
+            peopleImage = "https://images.unsplash.com/profile-1679489218992-ebe823c797dfimage?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128",
+            name = "Emily Davis",
+            followed = "Sophia Anderson and 15 more"
         ),
         DataModel(
-            peopleImage = "https://picsum.photos/200",
-            name = "Jhon Doe",
-            followed = "Aku sayang dan cinta dia selalu"
+            peopleImage = "https://images.unsplash.com/photo-1693370268702-92402dd47484?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzODc1Mjd8MHwxfGFsbHwyfHx8fHx8Mnx8MTY5MzYyNzk0Nnw&ixlib=rb-4.0.3&q=80&w=400",
+            name = "Daniel Brown",
+            followed = "Ava Harris and 18 more"
         ),
         DataModel(
-            peopleImage = "https://picsum.photos/200",
-            name = "Jhon Doe",
-            followed = "Aku sayang dan cinta dia selalu"
+            peopleImage = "https://images.unsplash.com/profile-1650823265094-d12ce7a91369image?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128",
+            name = "Sophia Anderson",
+            followed = "Emily Davis and 12 more"
         ),
         DataModel(
-            peopleImage = "https://picsum.photos/200",
-            name = "Jhon Doe",
-            followed = "Aku sayang dan cinta dia selalu"
+            peopleImage = "https://images.unsplash.com/profile-1592328433409-d9ce8a5333eaimage?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128",
+            name = "William Taylor",
+            followed = "Michael Johnson and 25 more"
         ),
         DataModel(
-            peopleImage = "https://picsum.photos/200",
-            name = "Jhon Doe",
-            followed = "Aku sayang dan cinta dia selalu"
+            peopleImage = "https://images.unsplash.com/profile-1601206918608-f38b995faee6image?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128",
+            name = "Ava Harris",
+            followed = "Daniel Brown and 17 more"
         ),
         DataModel(
-            peopleImage = "https://picsum.photos/200",
-            name = "Jhon Doe",
-            followed = "Aku sayang dan cinta dia selalu"
+            peopleImage = "https://images.unsplash.com/profile-1555528272665-3f3363727dae?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128",
+            name = "Olivia White",
+            followed = "James Miller and 22 more"
+        ),
+        DataModel(
+            peopleImage = "https://images.unsplash.com/profile-1583427783052-3da8ceab5579image?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128",
+            name = "Ethan Wilson",
+            followed = "Jessica Smith and 19 more"
+        ),
+        DataModel(
+            peopleImage = "https://images.unsplash.com/profile-1692693935949-83c01fd43f85image?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128",
+            name = "Jessica Smith",
+            followed = "Ethan Wilson and 16 more"
+        ),
+        DataModel(
+            peopleImage = "https://images.unsplash.com/profile-1503350572760-b44aa5280785?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128",
+            name = "James Miller",
+            followed = "Olivia White and 21 more"
         )
     )
 }

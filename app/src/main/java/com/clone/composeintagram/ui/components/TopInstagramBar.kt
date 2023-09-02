@@ -182,7 +182,7 @@ private fun ProfileTopAppBar(modifier: Modifier) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = "Ahmad",
+                    text = "Jhon Doe",
                     fontFamily = FontFamily.SansSerif,
                     fontWeight = FontWeight.SemiBold
                 )
@@ -190,7 +190,7 @@ private fun ProfileTopAppBar(modifier: Modifier) {
                 Image(imageVector = verifiedVector(), contentDescription = "")
             }
             Row(
-                modifier = modifier.padding(horizontal = 12.dp),
+                modifier = modifier.padding(horizontal = 14.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
@@ -198,7 +198,7 @@ private fun ProfileTopAppBar(modifier: Modifier) {
                     contentDescription = "",
                     colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onBackground)
                 )
-                Spacer(modifier = modifier.width(12.dp))
+                Spacer(modifier = modifier.width(16.dp))
                 Image(
                     imageVector = rememberVectorMenu(),
                     contentDescription = "",

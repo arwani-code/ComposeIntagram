@@ -35,7 +35,7 @@ fun ProfileDescription(modifier: Modifier = Modifier) {
     ) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data("https://picsum.photos/200")
+                .data("https://i.postimg.cc/kX8xCR06/351251814-178642991799472-3134276109914643848-n.jpg")
                 .crossfade(true)
                 .build(),
             contentDescription = null,
@@ -54,7 +54,7 @@ fun ProfileDescription(modifier: Modifier = Modifier) {
 @Composable
 fun ThreadsAccount(modifier: Modifier = Modifier) {
     Text(
-        text = "Ahmad",
+        text = "Jhon Doe",
         fontSize = 14.sp,
         fontWeight = FontWeight.Bold,
         modifier = modifier.padding(vertical = 6.dp, horizontal = 12.dp)

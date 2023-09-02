@@ -1,5 +1,7 @@
 package com.clone.composeintagram.ui.profile
 
+import android.util.Log
+import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.clone.composeintagram.data.DataModel
@@ -18,6 +20,7 @@ class ProfileViewModel @Inject constructor(
     private val igRepository: IgRepository
 ) : ViewModel() {
 
+    private val removeFollowed = mutableStateListOf<DataModel>()
     private val _dataItems = MutableStateFlow<List<DataModel>>(emptyList())
     val dataItems: StateFlow<List<DataModel>> = _dataItems.asStateFlow()
 
@@ -25,12 +28,13 @@ class ProfileViewModel @Inject constructor(
         _dataItems.value = igRepository.followedProfile
     }
 
-    fun removeItemFollowed(index: Int){
+    fun removeItemFollowed(data: DataModel) {
         viewModelScope.launch {
-            val data = withContext(Dispatchers.IO){
-                igRepository.followedProfile.drop(1)
+            removeFollowed.add(data)
+            val dataItem = withContext(Dispatchers.Default) {
+                igRepository.followedProfile.filter { !removeFollowed.contains(it) }
             }
-            _dataItems.value = data
+            _dataItems.value = dataItem
         }
     }
 }

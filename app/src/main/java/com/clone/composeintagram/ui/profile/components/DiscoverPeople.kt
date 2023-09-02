@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -27,6 +28,10 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -41,6 +46,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.clone.composeintagram.data.DataModel
 import com.clone.composeintagram.ui.profile.ProfileViewModel
 
 @Composable
@@ -49,10 +55,20 @@ fun RowDiscoverPeople(
     viewModel: ProfileViewModel
 ) {
     val items by viewModel.dataItems.collectAsStateWithLifecycle()
+    Row(
+        modifier = modifier.padding(horizontal = 12.dp).fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(text = "Discover People", fontSize = 14.sp, letterSpacing = 0.sp, fontWeight = FontWeight.Bold)
+        Text(text = "See all", fontSize = 14.sp, color = Color(
+            0xFF1da1f2
+        ), letterSpacing = 0.sp)
+    }
     LazyRow(contentPadding = PaddingValues(8.dp)) {
-        itemsIndexed(items) { id, item ->
-            DiscoverPeopleItem(name = item.name, followed = item.followed) {
-                viewModel.removeItemFollowed(id)
+        itemsIndexed(items) { _, item ->
+            DiscoverPeopleItem(data = item) {
+                viewModel.removeItemFollowed(it)
             }
         }
     }
@@ -61,10 +77,12 @@ fun RowDiscoverPeople(
 @Composable
 fun DiscoverPeopleItem(
     modifier: Modifier = Modifier,
-    name: String,
-    followed: String,
-    onClick: () -> Unit
+    data: DataModel,
+    onClick: (DataModel) -> Unit
 ) {
+    var following by rememberSaveable {
+        mutableStateOf(data.canLargeImage)
+    }
     Box(
         modifier = modifier
             .padding(2.dp)
@@ -85,7 +103,7 @@ fun DiscoverPeopleItem(
         ) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data("https://picsum.photos/200")
+                    .data(data.peopleImage)
                     .crossfade(true)
                     .build(),
                 contentDescription = null,
@@ -99,7 +117,7 @@ fun DiscoverPeopleItem(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Text(text = name)
+                Text(text = data.name)
                 Text(
                     text = "Followed by",
                     fontSize = 12.sp,
@@ -107,7 +125,7 @@ fun DiscoverPeopleItem(
                     color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.4f)
                 )
                 Text(
-                    text = followed,
+                    text = data.followed,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                     fontSize = 12.sp,
@@ -116,23 +134,25 @@ fun DiscoverPeopleItem(
                 )
             }
             OutlinedButton(
-                onClick = { },
+                onClick = { following = !following },
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(
+                    containerColor = if (following) MaterialTheme.colorScheme.onBackground.copy(
+                        alpha = 0.1f
+                    ) else Color(
                         0xFF1da1f2
                     ),
                 ),
                 border = BorderStroke(width = 1.dp, color = Color.Transparent),
                 shape = RoundedCornerShape(12.dp),
-                modifier = modifier.size(
-                    width = 100.dp,
-                    height = 35.dp
-                ),
+//                modifier = modifier.size(
+//                    width = 100.dp,
+//                    height = 35.dp
+//                ),
             ) {
                 Text(
-                    text = "Follow",
+                    text = if (following) "Following" else "Follow",
                     fontWeight = FontWeight.Bold,
-                    color = Color.White,
+                    color = if (following) MaterialTheme.colorScheme.onBackground else MaterialTheme.colorScheme.background,
                     fontSize = 14.sp
                 )
             }
@@ -143,7 +163,7 @@ fun DiscoverPeopleItem(
                 .padding(6.dp)
                 .size(30.dp)
         ) {
-            IconButton(onClick = onClick) {
+            IconButton(onClick = { onClick(data) }) {
                 Icon(
                     imageVector = Icons.Outlined.Clear,
                     contentDescription = "",
