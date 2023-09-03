@@ -1,7 +1,6 @@
 package com.clone.composeintagram.ui.reels
 
 import androidx.lifecycle.ViewModel
-import com.clone.composeintagram.data.DataModel
 import com.clone.composeintagram.data.IgRepository
 import com.clone.composeintagram.data.Video
 import dagger.hilt.android.lifecycle.HiltViewModel

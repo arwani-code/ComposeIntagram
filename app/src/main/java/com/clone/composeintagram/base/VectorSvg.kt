@@ -2,12 +2,12 @@ package com.clone.composeintagram.base
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathFillType
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.graphics.PathFillType
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 
@@ -336,73 +336,139 @@ fun arrowDown(): ImageVector {
     }
 }
 
-@Composable
-fun addPostVector(): ImageVector {
-    return remember {
-        ImageVector.Builder(
-            name = "vector",
-            defaultWidth = 24.dp,
-            defaultHeight = 24.dp,
-            viewportWidth = 24f,
-            viewportHeight = 24f
-        ).apply {
-            path(
-                fill = null,
-                fillAlpha = 1.0f,
-                stroke = SolidColor(Color(0xFF000000)),
-                strokeAlpha = 1.0f,
-                strokeLineWidth = 2f,
-                strokeLineCap = StrokeCap.Round,
-                strokeLineJoin = StrokeJoin.Round,
-                strokeLineMiter = 1.0f,
-                pathFillType = PathFillType.NonZero
-            ) {
-                moveTo(2f, 12f)
-                verticalLineToRelative(3.45f)
-                curveToRelative(0f, 2.849f, 0.698f, 4.005f, 1.606f, 4.944f)
-                curveToRelative(0.94f, 0.909f, 2.098f, 1.608f, 4.946f, 1.608f)
-                horizontalLineToRelative(6.896f)
-                curveToRelative(2.848f, 0f, 4.006f, -0.7f, 4.946f, -1.608f)
-                curveTo(21.302f, 19.455f, 22f, 18.3f, 22f, 15.45f)
-                verticalLineTo(8.552f)
-                curveToRelative(0f, -2.849f, -0.698f, -4.006f, -1.606f, -4.945f)
-                curveTo(19.454f, 2.7f, 18.296f, 2f, 15.448f, 2f)
-                horizontalLineTo(8.552f)
-                curveToRelative(-2.848f, 0f, -4.006f, 0.699f, -4.946f, 1.607f)
-                curveTo(2.698f, 4.547f, 2f, 5.703f, 2f, 8.552f)
-                close()
-            }
-            path(
-                fill = null,
-                fillAlpha = 1.0f,
-                stroke = SolidColor(Color(0xFF000000)),
-                strokeAlpha = 1.0f,
-                strokeLineWidth = 2f,
-                strokeLineCap = StrokeCap.Round,
-                strokeLineJoin = StrokeJoin.Round,
-                strokeLineMiter = 1.0f,
-                pathFillType = PathFillType.NonZero
-            ) {
-                moveTo(6.545f, 12.001f)
-                lineTo(17.455f, 12.001f)
-            }
-            path(
-                fill = null,
-                fillAlpha = 1.0f,
-                stroke = SolidColor(Color(0xFF000000)),
-                strokeAlpha = 1.0f,
-                strokeLineWidth = 2f,
-                strokeLineCap = StrokeCap.Round,
-                strokeLineJoin = StrokeJoin.Round,
-                strokeLineMiter = 1.0f,
-                pathFillType = PathFillType.NonZero
-            ) {
-                moveTo(12.003f, 6.545f)
-                lineTo(12.003f, 17.455f)
-            }
-        }.build()
+fun addPostVector(selected: Boolean = false): ImageVector = if (selected) ImageVector.Builder(
+    name = "vector",
+    defaultWidth = 24.dp,
+    defaultHeight = 24.dp,
+    viewportWidth = 24f,
+    viewportHeight = 24f
+).apply {
+    path(
+        fill = SolidColor(Color(0xFFF5F5F5)),
+        fillAlpha = 1.0f,
+        stroke = null,
+        strokeAlpha = 1.0f,
+        strokeLineWidth = 1.0f,
+        strokeLineCap = StrokeCap.Butt,
+        strokeLineJoin = StrokeJoin.Miter,
+        strokeLineMiter = 1.0f,
+        pathFillType = PathFillType.NonZero
+    ) {
+        moveTo(12.003f, 5.545f)
+        lineToRelative(-0.117f, 0.006f)
+        lineToRelative(-0.112f, 0.02f)
+        arcToRelative(1f, 1f, 0f, isMoreThanHalf = false, isPositiveArc = false, -0.764f, 0.857f)
+        lineToRelative(-0.007f, 0.117f)
+        verticalLineTo(11f)
+        horizontalLineTo(6.544f)
+        lineToRelative(-0.116f, 0.007f)
+        arcToRelative(1f, 1f, 0f, isMoreThanHalf = false, isPositiveArc = false, -0.877f, 0.876f)
+        lineTo(5.545f, 12f)
+        lineToRelative(0.007f, 0.117f)
+        arcToRelative(1f, 1f, 0f, isMoreThanHalf = false, isPositiveArc = false, 0.877f, 0.876f)
+        lineToRelative(0.116f, 0.007f)
+        horizontalLineToRelative(4.457f)
+        lineToRelative(0.001f, 4.454f)
+        lineToRelative(0.007f, 0.116f)
+        arcToRelative(1f, 1f, 0f, isMoreThanHalf = false, isPositiveArc = false, 0.876f, 0.877f)
+        lineToRelative(0.117f, 0.007f)
+        lineToRelative(0.117f, -0.007f)
+        arcToRelative(1f, 1f, 0f, isMoreThanHalf = false, isPositiveArc = false, 0.876f, -0.877f)
+        lineToRelative(0.007f, -0.116f)
+        verticalLineTo(13f)
+        horizontalLineToRelative(4.452f)
+        lineToRelative(0.116f, -0.007f)
+        arcToRelative(1f, 1f, 0f, isMoreThanHalf = false, isPositiveArc = false, 0.877f, -0.876f)
+        lineToRelative(0.007f, -0.117f)
+        lineToRelative(-0.007f, -0.117f)
+        arcToRelative(1f, 1f, 0f, isMoreThanHalf = false, isPositiveArc = false, -0.877f, -0.876f)
+        lineTo(17.455f, 11f)
+        horizontalLineToRelative(-4.453f)
+        lineToRelative(0.001f, -4.455f)
+        lineToRelative(-0.007f, -0.117f)
+        arcToRelative(1f, 1f, 0f, isMoreThanHalf = false, isPositiveArc = false, -0.876f, -0.877f)
+        close()
+        moveTo(8.552f, 0.999f)
+        horizontalLineToRelative(6.896f)
+        curveToRelative(2.754f, 0f, 4.285f, 0.579f, 5.664f, 1.912f)
+        curveToRelative(1.255f, 1.297f, 1.838f, 2.758f, 1.885f, 5.302f)
+        lineTo(23f, 8.55f)
+        verticalLineToRelative(6.898f)
+        curveToRelative(0f, 2.755f, -0.578f, 4.286f, -1.912f, 5.664f)
+        curveToRelative(-1.298f, 1.255f, -2.759f, 1.838f, -5.302f, 1.885f)
+        lineToRelative(-0.338f, 0.003f)
+        horizontalLineTo(8.552f)
+        curveToRelative(-2.754f, 0f, -4.285f, -0.579f, -5.664f, -1.912f)
+        curveToRelative(-1.255f, -1.297f, -1.839f, -2.758f, -1.885f, -5.302f)
+        lineTo(1f, 15.45f)
+        verticalLineTo(8.551f)
+        curveToRelative(0f, -2.754f, 0.579f, -4.286f, 1.912f, -5.664f)
+        curveTo(4.21f, 1.633f, 5.67f, 1.05f, 8.214f, 1.002f)
+        lineTo(8.552f, 1f)
+        close()
     }
-}
+}.build() else ImageVector.Builder(
+    name = "vector",
+    defaultWidth = 24.dp,
+    defaultHeight = 24.dp,
+    viewportWidth = 24f,
+    viewportHeight = 24f
+).apply {
+    path(
+        fill = null,
+        fillAlpha = 1.0f,
+        stroke = SolidColor(Color(0xFF000000)),
+        strokeAlpha = 1.0f,
+        strokeLineWidth = 2f,
+        strokeLineCap = StrokeCap.Round,
+        strokeLineJoin = StrokeJoin.Round,
+        strokeLineMiter = 1.0f,
+        pathFillType = PathFillType.NonZero
+    ) {
+        moveTo(2f, 12f)
+        verticalLineToRelative(3.45f)
+        curveToRelative(0f, 2.849f, 0.698f, 4.005f, 1.606f, 4.944f)
+        curveToRelative(0.94f, 0.909f, 2.098f, 1.608f, 4.946f, 1.608f)
+        horizontalLineToRelative(6.896f)
+        curveToRelative(2.848f, 0f, 4.006f, -0.7f, 4.946f, -1.608f)
+        curveTo(21.302f, 19.455f, 22f, 18.3f, 22f, 15.45f)
+        verticalLineTo(8.552f)
+        curveToRelative(0f, -2.849f, -0.698f, -4.006f, -1.606f, -4.945f)
+        curveTo(19.454f, 2.7f, 18.296f, 2f, 15.448f, 2f)
+        horizontalLineTo(8.552f)
+        curveToRelative(-2.848f, 0f, -4.006f, 0.699f, -4.946f, 1.607f)
+        curveTo(2.698f, 4.547f, 2f, 5.703f, 2f, 8.552f)
+        close()
+    }
+    path(
+        fill = null,
+        fillAlpha = 1.0f,
+        stroke = SolidColor(Color(0xFF000000)),
+        strokeAlpha = 1.0f,
+        strokeLineWidth = 2f,
+        strokeLineCap = StrokeCap.Round,
+        strokeLineJoin = StrokeJoin.Round,
+        strokeLineMiter = 1.0f,
+        pathFillType = PathFillType.NonZero
+    ) {
+        moveTo(6.545f, 12.001f)
+        lineTo(17.455f, 12.001f)
+    }
+    path(
+        fill = null,
+        fillAlpha = 1.0f,
+        stroke = SolidColor(Color(0xFF000000)),
+        strokeAlpha = 1.0f,
+        strokeLineWidth = 2f,
+        strokeLineCap = StrokeCap.Round,
+        strokeLineJoin = StrokeJoin.Round,
+        strokeLineMiter = 1.0f,
+        pathFillType = PathFillType.NonZero
+    ) {
+        moveTo(12.003f, 6.545f)
+        lineTo(12.003f, 17.455f)
+    }
+}.build()
 
 fun rememberVectorSearch(): ImageVector = ImageVector.Builder(
     name = "vector",

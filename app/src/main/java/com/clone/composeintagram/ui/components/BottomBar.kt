@@ -1,48 +1,30 @@
 package com.clone.composeintagram.ui.components
 
-import androidx.annotation.DrawableRes
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.NavigationBarItemColors
 import androidx.compose.material3.NavigationBarItemDefaults
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavDestination
-import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.clone.composeintagram.R
+import com.clone.composeintagram.base.addPostVector
 import com.clone.composeintagram.base.bottomIconSearch
 import com.clone.composeintagram.base.homeIcon
 import com.clone.composeintagram.base.reelsBottomIcon
-import com.clone.composeintagram.base.rememberVectorSearch
-import com.clone.composeintagram.ui.utils.SizeScreen
 import com.clone.composeintagram.ui.utils.navigateSingleTopTo
 
 @Composable
@@ -75,6 +57,10 @@ fun BottomBar(
             BottomBarItems(
                 icon = bottomIconSearch(currentScreen == "Search"),
                 screen = "Search"
+            ),
+            BottomBarItems(
+                icon = addPostVector(currentScreen == "Posts"),
+                screen = "Posts"
             ),
             BottomBarItems(
                 icon = reelsBottomIcon(currentScreen == "Reels"),
