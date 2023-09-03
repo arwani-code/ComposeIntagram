@@ -192,6 +192,10 @@ class IgLocalDataSource @Inject constructor() {
     )
 
     val sampleVideos = listOf(
+        "https://gemootest.s3.us-east-2.amazonaws.com/s/res/514885813225336832/a326b78f389a1c8bfecc760f85106ccc.mp4?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230903%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230903T133308Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=5856317745f62259e44d6b0b3a25120a6f4cfa2197899b24002aa862ce6436cd",
+        "https://gemootest.s3.us-east-2.amazonaws.com/s/res/514885813225336832/20720924f77cfca49ca2bac621639730.mp4?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230903%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230903T134605Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=5e1922374e56769f9f221d125ec81ecff238c6fefab2c1accfa463f90881204a",
+        "https://gemootest.s3.us-east-2.amazonaws.com/s/res/514885813225336832/7c41dd73cd794fb73b29bb2f71802bf1.mp4?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230903%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230903T133645Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=eca5534babb2b671eb2b0a8e2c0d3c14ff8c10af2348ff13bef2c5e748340348",
+        "https://gemootest.s3.us-east-2.amazonaws.com/s/res/514885813225336832/1e975ec8e4e252419661034623438abd.mp4?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230903%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230903T134029Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=6f54d89beecdd07bf5caa8401c961454f1049a98edae18a854791ffef3ac1ae2",
         "https://dms-exp2.licdn.com/playlist/vid/D4D05AQHk3m5ZbShWBg/feedshare-ambry-analyzed_servable_progressive_video/0/1693382416327?e=1694052000&v=beta&t=ZB1zfA8R11xsCPf2bL_zi79Fhn8UE6HX-TMuJ3homX0",
         "https://dms-exp2.licdn.com/playlist/vid/D5610AQGrNRa64UJrIA/mp4-720p-30fp-crf28/0/1688128248955?e=1693998000&v=beta&t=BsNvVTIfdzO9eEQLmm-O_kRd1cqsByOQza4EdVdLcX4",
         "https://dms-exp2.licdn.com/playlist/vid/D4E10AQG0XvddsFze-w/mp4-720p-30fp-crf28/0/1693386485919/0-_islamic_finance_2023720pmp4?e=1694062800&v=beta&t=JaPLxt5JXHQcK1pNIlcBg9GrRo03zDYewfBfIjQUglY",
@@ -199,7 +203,7 @@ class IgLocalDataSource @Inject constructor() {
     ).map {
         val name = nameRegex.find(it)?.groups?.firstOrNull()?.value
         val thumb =
-            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/$name.jpg"
+            "https://images.pexels.com/videos/9905538/bokeh-9905538.jpeg?auto=compress&cs=tinysrgb&w=600"
         Video(url = it, isFavorite = Random.nextBoolean(), thumbnail = thumb)
     }
 
