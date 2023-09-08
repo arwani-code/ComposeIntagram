@@ -188,18 +188,50 @@ class IgLocalDataSource @Inject constructor() {
         ),
         DataModel(
             postImage = "https://i.imgur.com/pSefFIC.jpg"
+        ),
+        DataModel(
+            postImage = "https://images.unsplash.com/photo-1692450932066-785f248b4013?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzODc1Mjd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTM5NTUxMzJ8&ixlib=rb-4.0.3&q=80&w=1080",
+            canLargeImage = true
+        ),
+        DataModel(
+            postImage = "https://images.unsplash.com/photo-1547744152-14d985cb937f?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+        ),
+        DataModel(
+            postImage = "https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+        ),
+        DataModel(
+            postImage = "https://images.unsplash.com/photo-1539593395743-7da5ee10ff07?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+        ),
+        DataModel(
+            postImage = "https://images.unsplash.com/photo-1691198913445-d7032ec7f2dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzODc1Mjd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTM5NTUzNDd8&ixlib=rb-4.0.3&q=80&w=1080"
+        ),
+        DataModel(
+            postImage = "https://images.unsplash.com/photo-1693487720548-cef983c29c7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzODc1Mjd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTM5NTU0MzZ8&ixlib=rb-4.0.3&q=80&w=1080"
+        ),
+        DataModel(
+            postImage = "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+        ),
+        DataModel(
+            postImage = "https://images.unsplash.com/photo-1691256853764-f9917b70e5e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzODc1Mjd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTM5NTU2MDR8&ixlib=rb-4.0.3&q=80&w=1080",
+            canLargeImage = true
+        ),
+        DataModel(
+            postImage = "https://images.unsplash.com/photo-1691944435602-a219037ac417?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzODc1Mjd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTM5NTU1MDF8&ixlib=rb-4.0.3&q=80&w=1080"
+        ),
+        DataModel(
+            postImage = "https://images.unsplash.com/photo-1692659071201-4a368a8a61c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzODc1Mjd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTM5NTU1MzJ8&ixlib=rb-4.0.3&q=80&w=1080"
         )
     )
 
     val sampleVideos = listOf(
-        "https://gemootest.s3.us-east-2.amazonaws.com/s/res/514885813225336832/a326b78f389a1c8bfecc760f85106ccc.mp4?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230903%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230903T133308Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=5856317745f62259e44d6b0b3a25120a6f4cfa2197899b24002aa862ce6436cd",
-        "https://gemootest.s3.us-east-2.amazonaws.com/s/res/514885813225336832/20720924f77cfca49ca2bac621639730.mp4?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230903%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230903T134605Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=5e1922374e56769f9f221d125ec81ecff238c6fefab2c1accfa463f90881204a",
-        "https://gemootest.s3.us-east-2.amazonaws.com/s/res/514885813225336832/7c41dd73cd794fb73b29bb2f71802bf1.mp4?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230903%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230903T133645Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=eca5534babb2b671eb2b0a8e2c0d3c14ff8c10af2348ff13bef2c5e748340348",
-        "https://gemootest.s3.us-east-2.amazonaws.com/s/res/514885813225336832/1e975ec8e4e252419661034623438abd.mp4?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230903%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230903T134029Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=6f54d89beecdd07bf5caa8401c961454f1049a98edae18a854791ffef3ac1ae2",
-        "https://dms-exp2.licdn.com/playlist/vid/D4D05AQHk3m5ZbShWBg/feedshare-ambry-analyzed_servable_progressive_video/0/1693382416327?e=1694052000&v=beta&t=ZB1zfA8R11xsCPf2bL_zi79Fhn8UE6HX-TMuJ3homX0",
-        "https://dms-exp2.licdn.com/playlist/vid/D5610AQGrNRa64UJrIA/mp4-720p-30fp-crf28/0/1688128248955?e=1693998000&v=beta&t=BsNvVTIfdzO9eEQLmm-O_kRd1cqsByOQza4EdVdLcX4",
-        "https://dms-exp2.licdn.com/playlist/vid/D4E10AQG0XvddsFze-w/mp4-720p-30fp-crf28/0/1693386485919/0-_islamic_finance_2023720pmp4?e=1694062800&v=beta&t=JaPLxt5JXHQcK1pNIlcBg9GrRo03zDYewfBfIjQUglY",
-        "https://dms-exp2.licdn.com/playlist/vid/D5605AQGSHFLQs718bw/mp4-720p-30fp-crf28/0/1692948614540?e=1694062800&v=beta&t=rHpQa-o8FbQy4n1V1GD2PG2nveqq9oO3W329SSIzGks"
+        "https://media.istockphoto.com/id/1282763864/id/video/hilton-falls-dekat-milton-ontario-kanada.mp4?s=mp4-640x640-is&k=20&c=Kdg1rPjjoaeSOIW26xwDuJg_9iE-07Cp8jLpqFzKqEA=",
+        "https://media.istockphoto.com/id/1317701201/id/video/eceng-gondok-overwintering-eceng-gondok-overwintering.mp4?s=mp4-640x640-is&k=20&c=jKtrDkuqz_9_8ma4VggyMs-1FgxJMxJEf2iBzjel8Eo=",
+        "https://media.istockphoto.com/id/928119722/id/video/mencuci-sayuran-segar-video-gerakan-lambat.mp4?s=mp4-640x640-is&k=20&c=Lm0vHy0nc-sbAAoSK31NPyxUWnE1exXtrMlptLX43v4=",
+        "https://media.istockphoto.com/id/1090547236/id/video/pria-dan-wanita-kaki-bawah-air-berdiri-di-tepi-lubang-dengan-dasar-laut-berbatu-kamera-tahan.mp4?s=mp4-640x640-is&k=20&c=OXhoAoe5r5WGUlvtXhOYsxI7RwPB58SI9C5Xf7vzac8=",
+        "https://media.istockphoto.com/id/129550690/id/video/gutta-cavat-lapidem-hd-30f.mp4?s=mp4-640x640-is&k=20&c=SDTmdXx6qDV-V2e_R_pOXdrbB6i_o0qjVBBL45gVfP0=",
+        "https://media.istockphoto.com/id/925552678/id/video/jacuzzi.mp4?s=mp4-640x640-is&k=20&c=exyxAz1UFCM0wKFzlZD13evlVgGvhMsACWk6ufMvePI=",
+        "https://media.istockphoto.com/id/1436176201/id/video/elemen-air-mancur-yang-berfungsi-di-taman-melawan-semak-hijau-gerakan-lambat.mp4?s=mp4-640x640-is&k=20&c=oJ2qi_yC3ouKAb6xNb5PWP9dZ-1-Cw145cFNtjTH0YE=",
+        "https://media.istockphoto.com/id/1324825893/id/video/tetesan-air-jatuh-dari-batu-dalam-gerakan-lambat-250fps.mp4?s=mp4-640x640-is&k=20&c=SCIoEweYLkD_7dhqVKtrRway4IQdmcMIOCmQkLOgwGI="
     ).map {
         val name = nameRegex.find(it)?.groups?.firstOrNull()?.value
         val thumb =

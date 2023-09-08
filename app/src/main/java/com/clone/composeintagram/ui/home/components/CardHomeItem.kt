@@ -275,7 +275,7 @@ private fun CommentSection(
             ) {
                 AsyncImage(
                     model = ImageRequest.Builder(context)
-                        .data(peopleImage)
+                        .data("https://i.postimg.cc/kX8xCR06/351251814-178642991799472-3134276109914643848-n.jpg")
                         .crossfade(true)
                         .build(),
                     contentDescription = null,
